@@ -2,20 +2,157 @@
 	margin: 0;
 	padding: 0;
 }
-/* ------------------------ */
+/* ------------------------ GENERAL */
 div.container{
 	height: 100%;
 	width: 100%;
+	position: relative;
+}
+ul {
+	list-style: none;
+}
+h1{
+	color: #6c7982;
+	text-align: center;
+	position: absolute;
+	top: 155px;
+	right: 165px;
+	font-weight: 400;
+}
+span{
+	color: #6c7982;
+	font-weight: bold;
+}
+p{
+	position: absolute;
+	right: 135px;
+	bottom: 10px;
+	font-size: 7px;
+	text-align: right;
 }
 /* ----------------------- NAV*/
 div.nav.bar{
 	background: url(../img/pleca.png)no-repeat;
 	height: 92px;
 	width: 100%;
+	float: left;
+	position: fixed;
+	z-index: 1;
 }
 /* ----------------------- PANTALLA 1 INICIO*/
 div.background-girl{
 	background: url(../img/girl1.png)no-repeat;
 	height: 100%;
 	width: 100%;
+	background-size: cover;
+}
+ul {
+	margin: auto;
+	width: 690px;
+	margin-top: 37px;
+}
+li{
+	display: inline-block;
+	margin-left: 31px;
+	color: #fff;
+	font-size: 20px;
+}
+h1.tittle-1{
+	top: 245px;
+}
+img.logo-luminous{
+	position: absolute;
+	right: 210px;
+	top: 115px;
+}
+img.pasta{
+	position: absolute;
+	right: 70px;
+	top: 235px;
+}
+img.boton{
+	position: absolute;
+	bottom: 0px;
+	right: 70px;
+}
+/* ----------------------- PANTALLA 2 LENTES*/
+div.background-girl2{
+	background: url(../img/fondo_3.png)no-repeat;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+/* ----------------------- PANTALLA 3 TACONES*/
+div.background-girl3{
+	background: url(../img/fondo_4.png)no-repeat;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+/* ----------------------- PANTALLA 4 DIENTE*/ 
+div.background-rojo{
+	background: url(../img/fondo.png)no-repeat;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+img.diente{
+	position: absolute;
+	top: 100px;
+	right: 0px;
+}
+h1.tittle{
+	color: #fff;
+}
+p.leyenda{
+	color: #fff;
+}
+p.drama{
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	right: 850px;
+	bottom: 50px;
+	font-weight: 500;
+}
+h1.opticos {
+	color: #fff;
+	right: 250px;
+}
+/* ----------------------- PANTALLA 5 3min*/ 
+img.minutos{
+	position: absolute;
+	top: 70px;
+	left: 15px;
+}
+img.banner{
+	position: absolute;
+	bottom: 10px;
+	left: 0px
+}
+p.drama2 {
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	right: 850px;
+	bottom: 95px;
+	font-weight: 500;
+}
+/* ----------------------- PANTALLA 6 BLUSAS*/
+div.background-girl4{
+	background: url(../img/fondo_5.png)no-repeat;
+	height: 100%;
+	width: 100%;
+	background-size: cover;
+}
+/* ----------------------- PANTALLA 7 ARTICULOS*/
+img.articulos{
+	position: absolute;
+	bottom: 130px;
+	left: 120px;
+}
+span.text {
+	color: #fff;
+	font-weight: bold;
+	font-size: 17px;
 }
