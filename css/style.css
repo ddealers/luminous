@@ -1,0 +1,21 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+/* ------------------------ */
+div.container{
+	height: 100%;
+	width: 100%;
+}
+/* ----------------------- NAV*/
+div.nav.bar{
+	background: url(../img/pleca.png)no-repeat;
+	height: 92px;
+	width: 100%;
+}
+/* ----------------------- PANTALLA 1 INICIO*/
+div.background-girl{
+	background: url(../img/girl1.png)no-repeat;
+	height: 100%;
+	width: 100%;
+}
