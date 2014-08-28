@@ -187,14 +187,20 @@ img.foto3{
 p.name1{
 	font-size: 16px;
 	position: absolute;
-	top: 150px;
+	top: 175px;
 	right: 783px;
 }
 p.name2{
-
+	font-size: 16px;
+	position: absolute;
+	top: 330px;
+	right: 783px;
 }
 p.name3{
-	
+	font-size: 16px;
+	position: absolute;
+	top: 501px;
+	right: 783px;
 }
 p.text1{
 	position: absolute;
@@ -205,12 +211,26 @@ p.text1{
 	text-align: left;
 }
 p.text2{
-	
+	position: absolute;
+	font-size: 10px;
+	width: 200px;
+	top: 354px;
+	right: 717px;
+	text-align: left;
 }
 p.text3{
-	
+	position: absolute;
+	font-size: 10px;
+	width: 200px;
+	bottom: 63px;
+	right: 717px;
+	text-align: left;
 }
-
+img.diente{
+	position: absolute;
+	right: 70px;
+	top: 335px;
+}
 
 
 
