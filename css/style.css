@@ -3,6 +3,10 @@
 	padding: 0;
 }
 /* ------------------------ GENERAL */
+html, body{
+	height: 100% !important;
+	width: 100%;
+}
 div.container{
 	min-height: 100%;
 	width: 100%;
@@ -167,3 +171,57 @@ span.text {
 	font-weight: bold;
 	font-size: 17px;
 }
+/* ----------------------- PANTALLA 8 SLIDER*/
+
+
+
+
+/* ----------------------- PANTALLA 9 GENTE LUMINOUS*/
+img.foto1{
+	position: absolute;
+	top: 120px;
+	width: 28%;
+	left: 200px;
+}
+img.foto2{
+	position: absolute;
+	top: 290px;
+	width: 28%;
+	left: 200px;
+}
+img.foto3{
+	position: absolute;
+	bottom: 40px;
+	width: 28%;
+	left: 200px;
+}
+p.name1{
+	font-size: 16px;
+	position: absolute;
+	top: 150px;
+	right: 783px;
+}
+p.name2{
+
+}
+p.name3{
+	
+}
+p.text1{
+	position: absolute;
+	font-size: 10px;
+	width: 200px;
+	top: 199px;
+	right: 722px;
+	text-align: left;
+}
+p.text2{
+	
+}
+p.text3{
+	
+}
+
+
+
+
