@@ -218,7 +218,7 @@ p.contexto{
 	text-align: center;
 	position: absolute;
 	bottom: 330px;
-	right: 170px;
+	right: 105px;
 }
 /* ----------------------- PANTALLA 8 SLIDER*/
 .container.slider0{
@@ -414,6 +414,9 @@ p.contexto2{
 	right: 145px;
 }
 div.footer{
+	position: fixed;
+	bottom: 0;
+	left: 0;
 	background: url(../img/footer.png)no-repeat;
 	width: 100%;
 	height: 50px;
