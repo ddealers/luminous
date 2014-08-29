@@ -29,4 +29,7 @@ $(document).ready(function(){
 		}
 	});
 	skrollr.menu.init(s);
+	//===== Init Slider =====
+	$('.slider').slick({dots: true,});
 });
+$(document).foundation();
