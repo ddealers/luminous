@@ -1,17 +1,22 @@
-*{
+*, h1, p{
 	margin: 0;
 	padding: 0;
+	font-family: 'colgate_readyregular';
 }
 /* ------------------------ GENERAL */
 html, body{
-	height: 100% !important;
+	height: 100%;
 	width: 100%;
 }
 div.container{
-	min-height: 100%;
+	min-height: 670px;
+	height: 100%;
 	width: 100%;
-	position: relative;
-	padding: 40px 0 100px;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: #FFF;
+	overflow: hidden;
 }
 ul {
 	list-style: none;
@@ -23,6 +28,7 @@ h1{
 	top: 155px;
 	right: 165px;
 	font-weight: 400;
+	width: 315px;
 }
 span{
 	color: #6c7982;
@@ -48,6 +54,7 @@ div.nav.bar{
 div.Inicio{
 	background: url(../img/girl1.png)no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 /*
 div.background-girl{
@@ -90,6 +97,7 @@ img.boton{
 div.Lentes{
 	background: url(../img/fondo_3.png)no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 /*div.background-girl2{
 	background: url(../img/fondo_4.png)no-repeat;
@@ -101,6 +109,7 @@ div.Lentes{
 div.Tacones{
 	background: url(../img/fondo_4.png)no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 /*
 div.background-girl3{
@@ -113,6 +122,7 @@ div.background-girl3{
 div.Iluminadores{
 	background: url(../img/fondo.png)no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 /*
 div.background-rojo{
@@ -124,21 +134,48 @@ div.background-rojo{
 */
 img.diente{
 	position: absolute;
-	top: 100px;
-	right: 0px;
+	/*top: 100px;*/
+	top: 55px;
+	left: -95px;
+}
+img.sparkles{
+	position: absolute;
+	top: 65px;
+	left: 450px;
 }
 h1.tittle{
 	color: #fff;
+}
+h1.sub{
+	top: 250px;
+}
+p.time{
+	position: absolute;
+	top: 170px;
+	left: 430px;
+	right: inherit;
+	bottom: inherit;
+	color: #fff;
+	font-size: 16px;
 }
 p.leyenda{
 	color: #fff;
 }
 p.drama{
+	/*
 	color: #fff;
 	font-size: 20px;
 	position: absolute;
 	right: 850px;
 	bottom: 50px;
+	font-weight: 500;
+	*/
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	left: 275px;
+	right: inherit;
+	bottom: 120px;
 	font-weight: 500;
 }
 h1.opticos {
@@ -149,6 +186,7 @@ h1.opticos {
 div.redbg{
 	background: url(../img/fondo.png)no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 }
 img.minutos{
 	position: absolute;
