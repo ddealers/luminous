@@ -26,4 +26,7 @@ $(document).ready(function(){
 		mobileDeceleration: 0.004
 	});
 	skrollr.menu.init(s);
+	//===== Init Slider =====
+	$('.slider').slick({dots: true,});
 });
+$(document).foundation();
