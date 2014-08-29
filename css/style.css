@@ -402,3 +402,40 @@ p.parrafo{
 	line-height: 10px;
 	padding-top: 8px;
 }
+/* ------------------------------ slider 2*/
+p.stp.arti{
+	width: 400px;
+	text-align: left;
+	height: 220px;
+	top: 200px;
+	overflow-y: scroll;
+}
+h1.st.titul {
+	right: 225px;
+}
+div.marco{
+	background: url(../img/marco.png)no-repeat;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	right: 80px;
+	top: 90px;
+}
+.slick-initialized .slick-slide {
+	height: 425px;
+}
+.slick-slide img.art-fotoss {
+	width: 31%;
+	position: absolute;
+	left: -36px;
+	top: 126px;
+}
+button.close{
+	background: url(../img/boton-tache.png)no-repeat;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 20px;
+	left: 794px;
+
+}
