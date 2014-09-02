@@ -29,10 +29,10 @@ $articles = get_magazine();
 		<div class="nav bar">
 			<img class="logo-part" src="./img/logo-p1.png">
 			<ul>
-				<li><a href="#inicio"><img src="./img/luminus-white.png"></a></li>
-				<li><a href="#iluminadores">INSTANT</a></li>
-				<li><a href="#gente">GENTE</a></li>
-				<li><a href="#magazine">MAGAZINE</a></li>
+				<li><a href="#inicio" data-menu-top="0"><img src="./img/luminus-white.png"></a></li>
+				<li><a href="#iluminadores" data-menu-top="300p">INSTANT</a></li>
+				<li><a href="#gente" data-menu-top="800p">GENTE</a></li>
+				<li><a href="#magazine" data-menu-top="900p">MAGAZINE</a></li>
 				<li><a href="https://www.facebook.com/ColgateMexico" target="_blank"><img src="./img/facebook.png"></a></li>
 				<li><a href="https://www.youtube.com/user/colgatemexico" target="_blank"><img src="./img/youtube.png"></a></li>
 			</ul>
@@ -50,7 +50,7 @@ $articles = get_magazine();
 				<!--transform:translate(0,100%)-->
 				<img data-50p="transform:translate(0,0%)" data-100p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
 				<p>El efecto blanqueador instantáneo es temporal.<br><span>Visita regularmente a tu odontólogo.</span></p>
-				<a class="boton-down" href="#decidir"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-down" href="#decidir" data-menu-top="100p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  DECIDIR NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
@@ -63,8 +63,8 @@ $articles = get_magazine();
 				<h1 data-80p="opacity:0" data-100p="opacity:1">DECIDIR NO ES<br> <span>INSTANTÁNEO,<br> BLANQUEAR<br></span>TU SONRISA SÍ.</h1>
 				<img data-50p="transform:translate(0,-195%)" data-100p="transform:translate(0,0%)" data-150p="transform:translate(0,50%)" data-200p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
 				<p>El efecto blanqueador instantáneo es temporal.<br>Visita regularmente a tu odontólogo.</p>
-				<a class="boton-up" href="#inicio"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#escoger"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-up" href="#inicio" data-menu-top="0"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#escoger" data-menu-top="200p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  ESCOGER NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
@@ -77,8 +77,8 @@ $articles = get_magazine();
 				<h1 data-180p="opacity:0" data-200p="opacity:1">ESCOGER NO ES<br> <span>INSTANTÁNEO,<br> BLANQUEAR<br></span>TU SONRISA SÍ.</h1>
 				<img data-120p="transform:translate(0,-180%)" data-200p="transform:translate(0,0%)" data-250p="transform:translate(0,50%)" data-300p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
 				<p>El efecto blanqueador instantáneo es temporal.<br>Visita regularmente a tu odontólogo.</p>
-				<a class="boton-up" href="#decidir"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#iluminadores"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-up" href="#decidir" data-menu-top="100p"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#iluminadores" data-menu-top="300p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  CON ILUMINADORES ÓPTICOS -->
@@ -130,8 +130,8 @@ $articles = get_magazine();
 				<h1 data-_sparkles-80p="opacity:0" data-_sparkles-100p="opacity:1" class="tittle sub">DIENTES BLANCOS<br>AL INSTANTE.</h1>
 				<img data-220p="transform:translate(0,-180%)" data-300p="transform:translate(0,0%)" data-500p="transform:translate(0,0%)" data-550p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
 				<p>El efecto blanqueador instantáneo es temporal.<br>Visita regularmente a tu odontólogo.</p>
-				<!--a class="boton-up" href="#escoger"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#blanquear"><img src="./img/boton-flecha-abajo.png"></a-->
+				<a class="boton-up" href="#decidir" data-menu-top="200p"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#iluminadores" data-menu-top="600p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  DECIDIR NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
@@ -144,8 +144,8 @@ $articles = get_magazine();
 				<h1 data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1">DECIDIR NO ES<br> <span>INSTANTÁNEO,<br> BLANQUEAR<br></span>TU SONRISA SÍ.</h1>
 				<img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" data-_sparkles-350p="transform:translate(0,50%)" data-_sparkles-400p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
 				<p>El efecto blanqueador instantáneo es temporal.<br>Visita regularmente a tu odontólogo.</p>
-				<a class="boton-up" href="#iluminadores"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#articulos"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-up" href="#iluminadores" data-menu-top="300p"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#articulos" data-menu-top="700p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>	
 <!--  ++++++++++++  LÍNEA COMPLETA, RESULTADOS INCREÍBLES. -->
@@ -182,8 +182,8 @@ $articles = get_magazine();
 				<p data-_sparkles-380p="opacity:0" data-_sparkles-400p="opacity:1" class="contexto">Con cepillo, enjuague y pasta de dientes juntos,<br>tu sonrisa brillará mucho más.</p>
 				<p class="leyenda">El efecto blanqueador instantáneo es temporal.<br>Visita regularmente a tu odontólogo.</p>
 				<img data-_sparkles-320p="transform:translate(0,-180%)" data-_sparkles-400p="transform:translate(0,0%)" src="./img/pasta.png" class="pasta">
-				<a class="boton-up" href="#blanquear"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#gente"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-up" href="#blanquear" data-menu-top="600p"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#gente" data-menu-top="800p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  GENTE LUMINOUS -->
@@ -218,8 +218,8 @@ $articles = get_magazine();
 				<h1 class="tittle">GENTE <br>LUMINOUS</h1>
 				<p class="contexto">Personas que han decidido cambiar su sonrisa<br> en un instante.</p>
 				<img src="./img/diente.png" class="diente2">
-				<a class="boton-up" href="#blanquear"><img src="./img/boton-flecha-arriba.png"></a>
-				<a class="boton-down" href="#magazine"><img src="./img/boton-flecha-abajo.png"></a>
+				<a class="boton-up" href="#blanquear" data-menu-top="700p"><img src="./img/boton-flecha-arriba.png"></a>
+				<a class="boton-down" href="#magazine" data-menu-top="900p"><img src="./img/boton-flecha-abajo.png"></a>
 			</div>
 		</div>
 <!--  ++++++++++++  MAGAZINE LUMINOUS -->
@@ -289,7 +289,7 @@ $articles = get_magazine();
 					</div>
 				</div>
 			</div>
-			<a class="last boton-up" href="#gente"><img src="./img/boton-flecha-arriba.png"></a>
+			<a class="last boton-up" href="#gente" data-menu-top="800p"><img src="./img/boton-flecha-arriba.png"></a>
 			<div class="footer">
 				<ul class="ul">
 					<li class="li"><a target="_blank" href="http://www.colgatepalmolive.com.mx">WWW.COLGATEPALMOLIVE.COM.MX</a></li>

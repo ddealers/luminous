@@ -45,6 +45,8 @@ div.container .girl{
 div.container .white-bg{
 	background: url(../img/white-bg.png) no-repeat right;
 	background-size: 65% 100%;
+	-moz-background-size: 65% 100%;
+	-webkit-background-size: 65% 100%;
 	height: 100%;
 	width: 100%;
 	position: relative;
@@ -52,7 +54,7 @@ div.container .white-bg{
 }
 div.container .text{
 	position: absolute;
-	z-index: 2;
+	z-index: 4;
 	top: 25%;
 	left: 45%;
 	height: 75%;
@@ -61,7 +63,7 @@ div.container .text{
 }
 div.container a.boton-up{
 	position: absolute;
-	top: -4rem;
+	top: -5rem;
 	right: 4rem;
 }
 div.container a.boton-up.last{
@@ -147,6 +149,8 @@ div.Inicio{
 	/*background: url(../img/girl1.png)no-repeat;*/
 	background: url(../img/bg1.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
 
@@ -155,6 +159,8 @@ div.Lentes{
 	/*background: url(../img/fondo_3.png)no-repeat;*/
 	background: url(../img/bg2.png)no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
 /* ----------------------- PANTALLA 3 TACONES*/
@@ -162,12 +168,16 @@ div.Tacones{
 	/*background: url(../img/fondo_4.png)no-repeat;*/
 	background: url(../img/bg3.png)no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
 /* ----------------------- PANTALLA 4 DIENTE*/ 
 div.Iluminadores{
 	background: url(../img/fondo.png)no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
 .container.Articulos{
@@ -175,6 +185,8 @@ div.Iluminadores{
 	height: 100%;
 	width: 100%;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 div.diente-container{
 	position: absolute;
@@ -230,6 +242,8 @@ h1.opticos {
 div.redbg{
 	background: url(../img/fondo.png)no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
 img.minutos{
@@ -258,6 +272,8 @@ div.container.Blusas{
 	height: 100%;
 	width: 100%;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 /* ----------------------- PANTALLA 7 ARTICULOS*/
 div.container .articulos-list{
@@ -296,6 +312,8 @@ div.container p.contexto{
 .fancybox-overlay{
 	background: url(../img/fondo.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 .fancybox-skin{
 	background: transparent;
@@ -307,6 +325,8 @@ div.container p.contexto{
 	width: 2rem;
 	height: 2rem;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 .slider0{
 	width: 100%;
@@ -326,6 +346,8 @@ div.container p.contexto{
 	width: 1rem;
 	height: 2rem;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 
 .slick-next,.slick-next:hover,.slick-next:focus {
@@ -334,6 +356,8 @@ div.container p.contexto{
 	width: 1rem;
 	height: 2rem;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 
 .slick-prev::before, .slick-next::before{
@@ -406,6 +430,8 @@ div.container p.contexto{
 .container.Gente{
 	background: url(../img/fondo.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 div.people{
 	position: absolute;
@@ -429,6 +455,8 @@ div.people .pip > div{
 div.people .pip .pip-p{
 	background: url(../img/marco-p.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	left: 3.5rem;
 	width: 80%;
 	height: 70%;
@@ -455,6 +483,8 @@ div.people .pip .pip-back{
 	z-index: 0;
 	background: url(../img/marco-back.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 img.diente2{
 	width: 24rem;
@@ -464,6 +494,8 @@ img.diente2{
 .container.Magazine{
 	background: url(../img/fondo.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 .container.Magazine .row:nth-child(1){
 	padding: 7rem 0 0;
@@ -473,6 +505,8 @@ img.diente2{
 	height: 1.7rem;
 	display: block;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	position: absolute;
 }
 a.fb-large{
@@ -518,6 +552,8 @@ a.tw-large{
 	content: "";
 	background: url(../img/marco-magazine.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	width: 19.2rem;
 	height: 14rem;
 	display: block;
@@ -536,6 +572,8 @@ a.tw-large{
 	content: "";
 	background: url(../img/marco-magazine.png) no-repeat;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	width: 7rem;
 	height: 5rem;
 	display: block;
@@ -551,6 +589,8 @@ div.footer{
 	width: 100%;
 	height: 3rem;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 }
 div.footer ul {
 	/*margin: auto; 
@@ -633,6 +673,8 @@ div.footer p.parrafo{
 	height: 1.7rem;
 	display: block;
 	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
 	/* float: left; */
 	margin: 1rem auto;
 }
@@ -680,6 +722,8 @@ button.close{
 	}
 	div.nav.bar ul{
 		background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
 		padding-right: 4rem;
 		height: 6rem;
 	}
@@ -709,6 +753,8 @@ button.close{
 	div.nav.bar{
 		background: url(../img/logo-p3.png) no-repeat right 0.5rem;
 		background-size: 3% 80%;
+		-moz-background-size: 3% 80%;
+		-webkit-background-size: 3% 80%;
 	}
 	div.nav.bar .logo-part {
 		width: auto;
@@ -722,6 +768,8 @@ button.close{
 	div.nav.bar{
 		background: url(../img/logo-p3.png) no-repeat right 0.5rem;
 		background-size: 3% 80%;
+		-moz-background-size: 3% 80%;
+		-webkit-background-size: 3% 80%;
 	}
 	div.nav.bar .logo-part {
 		width: auto;
