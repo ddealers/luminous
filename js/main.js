@@ -43,15 +43,54 @@ $(document).ready(function(){
 	//===== Init Fancybox =====
 	$('.article-box').on('click', function(e){
 		e.preventDefault();
-		url = 'http://luminousselfie.com/site/article.php?id=' + $(this).data('id');
+		var button = $(this),
+			url = 'http://luminousselfie.com/site/article.php?id=' + $(this).data('id');
 		$.get(url, function(data){
-			console.log(data);
-			$('#art img').attr('src','http://luminousselfie.com/SA350p/images/media/uploads/'+data.image);
-			$('#art h1').text(data.title_news);
-			$('#art p').text(data.body_news);
+			var pos = 0;
+			$('#art .gal .track').empty();
+			if(data.image_arr != null){
+				var total = data.image_arr.length - 1;
+				for(var i in data.image_arr){
+					img = $('<img>');
+					img.attr('src','http://luminousselfie.com/SA350p/images/media/uploads/'+data.image_arr[i].image);
+					$('#art .gal .track').append(img);
+					TweenMax.set($('#art .gal .track img'),{opacity:0});
+				}
+				TweenMax.to($('#art .gal .track img').eq(pos), 1, {opacity:1, '-webkit-filter': 'blur(0)'});
+				$('#art .gal-next').show().on('click', function(e){
+					e.preventDefault();
+					pos++;
+					if(pos > total) pos = 0;
+					TweenMax.to($('#art .gal .track img'), 1, {opacity:0, '-webkit-filter': 'blur(10px)'});
+					TweenMax.to($('#art .gal .track img').eq(pos), 1, {opacity:1, '-webkit-filter': 'blur(0)'});
+				});
+				$('#art .gal-prev').show().on('click', function(e){
+					e.preventDefault();
+					pos--;
+					if(pos < 0) pos = total;
+					TweenMax.to($('#art .gal .track img'), 1, {opacity:0, '-webkit-filter': 'blur(10px)'});
+					TweenMax.to($('#art .gal .track img').eq(pos), 1, {opacity:1, '-webkit-filter': 'blur(0)'});
+				});
+			}else{
+				var img = $('<img>');
+				img.attr('src','http://luminousselfie.com/SA350p/images/media/uploads/'+data.image);
+				$('#art .gal .track').append(img);
+				$('#art .gal-next').hide();
+				$('#art .gal-prev').hide();
+			}
+			$('#art h1').html(data.title_news);
+			$('#art p').html(data.body_news);
+			$('#art .fb-large').data('id', button.data('id'));
+			$('#art .tw-large').data('id', button.data('id'));
+			location.href='http://luminousselfie.com/site/#art/'+button.data('id');
 		});
 	});
-	$('.article-box').fancybox();
+	$('.article-box').fancybox({
+		beforeClose : function(){
+			var link = document.querySelector('.btn-magazine');
+			skrollr.menu.click(link);
+		}
+	});
 	$('.footer-box').fancybox();
 	$('.products-box').fancybox();
 	$('.products-box').on('click', function(e){
@@ -72,11 +111,31 @@ $(document).ready(function(){
 	//===== Social Media Buttons =====
 	$('.fb-large').on('click', function(e){
 		e.preventDefault();
-		window.open('http://www.facebook.com/sharer.php?u='+location.href, 'Compartir en Facebook','width=480, height=320');
+		if($(this).data('id')){
+			var id = $(this).data('id');
+			url = encodeURIComponent('http://luminousselfie.com/site/#art/'+id);
+		}else{
+			url = encodeURIComponent('http://luminousselfie.com/site/'+$(this).attr('href'));
+		}
+		window.open('http://www.facebook.com/sharer.php?u='+url, 'Compartir en Facebook','width=480, height=320');
 	});
 	$('.tw-large').on('click', function(e){
 		e.preventDefault();
-		window.open('https://twitter.com/share?url='+location.href, 'Compartir en Twitter','width=480, height=320');
+		if($(this).data('id')){
+			var id = $(this).data('id');
+			url = encodeURIComponent('http://luminousselfie.com/site/#art/'+id);
+		}else{
+			url = encodeURIComponent('http://luminousselfie.com/site/'+$(this).attr('href'));
+		}
+		window.open('https://twitter.com/share?url='+url, 'Compartir en Twitter','width=480, height=320');
 	});
+
+	//===== Detect URL ======
+	if( String(location.hash).indexOf('#art/') > -1){
+		var rid = String(location.hash).replace('#art/','');
+		if(rid){
+			$('.article-box[data-id="'+rid+'"]').trigger('click');
+		}
+	}
 });
 

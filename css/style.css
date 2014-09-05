@@ -45,8 +45,6 @@ div.container .girl{
 div.container .white-bg{
 	background: url(../img/white-bg.png) no-repeat right;
 	background-size: 65% 100%;
-	-moz-background-size: 65% 100%;
-	-webkit-background-size: 65% 100%;
 	height: 100%;
 	width: 100%;
 	position: relative;
@@ -63,8 +61,9 @@ div.container .text{
 }
 div.container a.boton-up{
 	position: absolute;
-	top: -5rem;
+	top: 5rem;
 	right: 4rem;
+	z-index: 5;
 }
 div.container a.boton-up.last{
 	top: 5rem;
@@ -150,8 +149,10 @@ div.Inicio{
 	background: url(../img/bg1.png) no-repeat;
 	background-size: cover;
 	-moz-background-size: cover;
-	-webkit-background-size: cover;
 	background-attachment: fixed;
+}
+html[xmlns*=""]:root div.Inicio{
+	-webkit-background-size: auto 150%;
 }
 
 /* ----------------------- PANTALLA 2 LENTES*/
@@ -163,6 +164,9 @@ div.Lentes{
 	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
+html[xmlns*=""]:root div.Lentes{
+	-webkit-background-size: auto 150%;
+}
 /* ----------------------- PANTALLA 3 TACONES*/
 div.Tacones{
 	/*background: url(../img/fondo_4.png)no-repeat;*/
@@ -172,6 +176,9 @@ div.Tacones{
 	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
+html[xmlns*=""]:root div.Tacones{
+	-webkit-background-size: auto 150%;
+}
 /* ----------------------- PANTALLA 4 DIENTE*/ 
 div.Iluminadores{
 	background: url(../img/fondo.png)no-repeat;
@@ -179,6 +186,9 @@ div.Iluminadores{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	background-attachment: fixed;
+}
+html[xmlns*=""]:root div.Iluminadores{
+	-webkit-background-size: auto 150%;
 }
 .container.Articulos{
 	background: url(../img/fondo.png)no-repeat;
@@ -188,11 +198,14 @@ div.Iluminadores{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
+html[xmlns*=""]:root div.Articulos{
+	-webkit-background-size: auto 150%;
+}
 div.diente-container{
 	position: absolute;
 	/* top: 100px; */
-	top: 10.5rem;
-	left: -6rem;
+	top: 5.5rem;
+	left: 0rem;
 	width: 40rem;
 }
 img.diente{
@@ -246,6 +259,9 @@ div.redbg{
 	-webkit-background-size: cover;
 	background-attachment: fixed;
 }
+html[xmlns*=""]:root div.redbg{
+	-webkit-background-size: auto 150%;
+}
 img.minutos{
 	position: absolute;
 	top: 70px;
@@ -274,6 +290,9 @@ div.container.Blusas{
 	background-size: cover;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
+}
+html[xmlns*=""]:root div.Blusas{
+	-webkit-background-size: auto 150%;
 }
 /* ----------------------- PANTALLA 7 ARTICULOS*/
 div.container .articulos-list{
@@ -315,6 +334,9 @@ div.container p.contexto{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
+html[xmlns*=""]:root .fancybox-overlay{
+	-webkit-background-size: auto 150%;
+}
 .fancybox-skin{
 	background: transparent;
 }
@@ -327,6 +349,9 @@ div.container p.contexto{
 	background-size: cover;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
+}
+html[xmlns*=""]:root .fancybox-close{
+	-webkit-background-size: auto 150%;
 }
 .slider0{
 	width: 100%;
@@ -349,7 +374,9 @@ div.container p.contexto{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
-
+html[xmlns*=""]:root .slick-prev{
+	-webkit-background-size: auto 100%;
+}
 .slick-next,.slick-next:hover,.slick-next:focus {
 	right: 1rem;
 	background: url(../img/boton-flecha-adelante.png) no-repeat;
@@ -359,7 +386,9 @@ div.container p.contexto{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
-
+html[xmlns*=""]:root .slick-next{
+	-webkit-background-size: auto 100%;
+}
 .slick-prev::before, .slick-next::before{
 	content: "";
 	display: none;
@@ -432,6 +461,10 @@ div.container p.contexto{
 	background-size: cover;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
+
+}
+html[xmlns*=""]:root .container.Gente{
+	-webkit-background-size: auto 100%;
 }
 div.people{
 	position: absolute;
@@ -464,9 +497,22 @@ div.people .pip .pip-p{
 	padding-top: 0.4rem;
 	z-index: 1;
 }
+html[xmlns*=""]:root div.people .pip .pip-p{
+	-webkit-background-size: auto 100%;
+}
+div.people .pip .pip-img{
+	text-align: left;
+	overflow: hidden;
+	top: 1.4rem;
+	left: 1rem;
+	height: 67%;
+}
+div.people .pip .pip-img img{
+	height: 120%;
+}
 div.people .pip .pip-p p{
 	text-align: left;
-	font-size: 0.75rem;
+	font-size: 0.65rem;
 }
 div.people .pip .pip-p .pip-name{
 	bottom: inherit;
@@ -486,6 +532,9 @@ div.people .pip .pip-back{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
+html[xmlns*=""]:root div.people .pip .pip-back{
+	-webkit-background-size: auto 100%;
+}
 img.diente2{
 	width: 24rem;
 }
@@ -497,8 +546,11 @@ img.diente2{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 }
+html[xmlns*=""]:root .container.Magazine{
+	-webkit-background-size: auto 150%;
+}
 .container.Magazine .row:nth-child(1){
-	padding: 7rem 0 0;
+	padding: 5rem 0 0;
 }
 .container.Magazine .row:nth-child(1) .columns .btn{
 	width: 7rem;
@@ -508,6 +560,9 @@ img.diente2{
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
 	position: absolute;
+}
+html[xmlns*=""]:root .container.Magazine .row:nth-child(1) .columns .btn{
+	-webkit-background-size: auto 100%;
 }
 a.fb-large{
 	background: url(../img/fb-large.png) no-repeat;
@@ -529,7 +584,7 @@ a.tw-large{
 	margin: 0.7rem 0;
 }
 .container.Magazine .articles .article{
-	margin: 1rem;
+	margin: auto 1rem;
 	float: left;
 }
 .container.Magazine .articles .article a{
@@ -561,10 +616,13 @@ a.tw-large{
 	left: -0.4rem;
 	top: -0.1rem;
 }
+html[xmlns*=""]:root .container.Magazine .articles .quart{
+	-webkit-background-size: auto 100%;
+}
 .container.Magazine .articles .single{
-	width: 6rem;
-	height: 4.5rem;
-	margin: 0.7rem 2rem;
+	width: 7rem;
+	height: 5rem;
+	margin: 0.2rem 1.6rem;
 	position: relative;
 	overflow: hidden;
 }
@@ -578,8 +636,9 @@ a.tw-large{
 	height: 5rem;
 	display: block;
 	position: relative;
-	left: -0.4rem;
-	top: -0.1rem;
+}
+html[xmlns*=""]:root .container.Magazine .articles .single::before{
+	-webkit-background-size: auto 100%;
 }
 div.footer{
 	position: absolute;
@@ -591,6 +650,9 @@ div.footer{
 	background-size: cover;
 	-moz-background-size: cover;
 	-webkit-background-size: cover;
+}
+html[xmlns*=""]:root div.footer{
+	-webkit-background-size: auto 100%;
 }
 div.footer ul {
 	/*margin: auto; 
@@ -637,6 +699,9 @@ div.footer p.parrafo{
 	font-size: 0.7rem;
 }
 /* ------------------------------ slider 2*/
+.fancybox-inner{
+	overflow: hidden !important;
+}
 .Articulo > .row{
 	position: absolute;
 	top: 0;
@@ -650,9 +715,49 @@ div.footer p.parrafo{
 .Articulo > .row > div{
 	height: 100%;
 }
-.Articulo > .row > div img{
+.Articulo > .row > div .gal{
 	margin: auto;
 	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.Articulo > .row > div .gal .gal-next{
+	display: block;
+	background: url(../img/boton-flecha-adelante.png) no-repeat;
+	width: 1rem;
+	height: 2rem;
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	position: absolute;
+	top: 50%;
+	right: 0;
+}
+.Articulo > .row > div .gal .gal-prev{
+	display: block;
+	background: url(../img/boton-flecha-atras.png) no-repeat;
+	width: 1rem;
+	height: 2rem;
+	background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+.Articulo > .row > div .gal .track{
+	width: 100%;
+	height: 100%;
+}
+.Articulo > .row > div .gal .track img{
+	width: 100%;
+	position: absolute;
+	margin: auto;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -663,10 +768,12 @@ div.footer p.parrafo{
 	font-size: 1.2rem;
 }
 .Articulo > .row > div .desc p{
-	text-align: center;
+	text-align: justify;
 	color: #fff;
 	font-size: 0.7rem;
 	margin-top: 0.8rem;
+	height: 15rem;
+	overflow-y: auto;
 }
 .Articulo > .row:nth-child(1) .columns .btn{
 	width: 7rem;
@@ -677,6 +784,9 @@ div.footer p.parrafo{
 	-webkit-background-size: cover;
 	/* float: left; */
 	margin: 1rem auto;
+}
+html[xmlns*=""]:root .Articulo > .row:nth-child(1) .columns .btn{
+	-webkit-background-size: auto 150%;
 }
 p.stp.arti{
 	width: 400px;
@@ -726,6 +836,9 @@ button.close{
 		-webkit-background-size: cover;
 		padding-right: 4rem;
 		height: 6rem;
+	}
+	html[xmlns*=""]:root div.nav.bar ul{
+	-webkit-background-size: auto 150%;
 	}
 	div.nav.bar ul li{
 		margin-left: 0.9rem;
