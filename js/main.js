@@ -1,4 +1,21 @@
 $(document).ready(function(){
+	//===== FB =====
+	window.fbAsyncInit = function() {
+		FB.init({
+        	appId      : '527616370633192',
+        	xfbml      : true,
+        	version    : 'v2.0'
+        });
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+
 	//===== Mobile =====
 	function detectmob() { 
 		if( navigator.userAgent.match(/Android/i)
@@ -113,10 +130,24 @@ $(document).ready(function(){
 		e.preventDefault();
 		if($(this).data('id')){
 			var id = $(this).data('id');
+			//url = encodeURIComponent('http://luminousselfie.com/site/og.php?id='+id);
 			url = encodeURIComponent('http://luminousselfie.com/site/#art/'+id);
+			//$('meta[property="og:title"]').attr('content', $('#art h1').text());
+			//$('meta[property="og:url"]').attr('content', url);
+			//$('meta[property="og:image"]').attr('content', $('#art .gal img'));
 		}else{
 			url = encodeURIComponent('http://luminousselfie.com/site/'+$(this).attr('href'));
 		}
+		/*FB.ui({
+			method: 'share',
+			href: url,
+		}, function(response) {
+			/*if (response && !response.error_code) {
+				alert('Posting completed.');
+			} else {
+				alert('Error while posting.');
+			}
+		});*/
 		window.open('http://www.facebook.com/sharer.php?u='+url, 'Compartir en Facebook','width=480, height=320');
 	});
 	$('.tw-large').on('click', function(e){

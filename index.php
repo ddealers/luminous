@@ -9,9 +9,11 @@ $articles = get_magazine();
         <meta charset="utf-8">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <!--meta property="og:title" content="The Rock" />
-        <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
-        <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /-->
+        <meta property="og:title" content="Luminous Magazine">
+        <meta property="og:site_name" content="Luminous Selfie"/>
+        <meta property="og:url" content="http://luminousselfie.com/site/#magazine">
+        <meta property="og:image" content="http://luminousselfie.com/site/img/pasta.png">
+        <meta property="og:description" content="Descubre los lugares Luminous en estos artículos que tenemos para ti.">
         <link rel="shortcut icon" href="img/favicon.png">
         <link rel="stylesheet" type="text/css" href="fonts/colgate.css">
         <link rel="stylesheet" type="text/css" href="css/foundation.css">
@@ -111,17 +113,17 @@ $articles = get_magazine();
             <a class="boton-up" href="#decidir" data-menu-top="200p"><img src="./img/boton-flecha-arriba.png"></a>
             <div class="background-rojo">
                 <img 
-                    data-_sparkles-0="transform:translate(10%,0%);opacity:0;filter:blur(0px)" 
-                    data-_sparkles-20p="transform:translate(-34%,12%);opacity:0.9;filter:blur(2px)"
-                    data-_sparkles-80p="transform:translate(-116%,48%);opacity:0.9;filter:blur(0px)"
+                    data-_sparkles-0="transform:translate(10%,0%);opacity:0" 
+                    data-_sparkles-20p="transform:translate(-34%,12%);opacity:0.9"
+                    data-_sparkles-80p="transform:translate(-116%,48%);opacity:0.9"
                     data-_sparkles-150p="transform:translate(-130%,60%);opacity:0" 
-                    src="./img/sparkles.png" class="sparkles">
+                    src="./img/sparkles2.png" class="sparkles">
                 <img 
-                    data-_sparkles-0="transform:translate(10%,0%);opacity:0;filter:blur(0px)" 
-                    data-_sparkles-20p="transform:translate(-14%,12%);opacity:0.8;filter:blur(4px)"
-                    data-_sparkles-80p="transform:translate(-86%,48%);opacity:0.8;filter:blur(0px)"
+                    data-_sparkles-0="transform:translate(10%,0%);opacity:0" 
+                    data-_sparkles-20p="transform:translate(-14%,12%);opacity:0.8"
+                    data-_sparkles-80p="transform:translate(-86%,48%);opacity:0.8"
                     data-_sparkles-150p="transform:translate(-110%,60%);opacity:0" 
-                    src="./img/sparkles.png" class="sparkles">
+                    src="./img/sparkles1.png" class="sparkles">
                 <img 
                     data-_sparkles-0="transform:translate(0%,0%);opacity:0" 
                     data-_sparkles-20p="transform:translate(-24%,12%);opacity:1"
