@@ -61,7 +61,8 @@ $(document).ready(function(){
 	$('.article-box').on('click', function(e){
 		e.preventDefault();
 		var button = $(this),
-			url = 'http://luminousselfie.com/site/article.php?id=' + $(this).data('id');
+			url = '../article.php?id=' + $(this).data('id');
+
 		$.get(url, function(data){
 			var pos = 0;
 			$('#art .gal .track').empty();
@@ -97,6 +98,8 @@ $(document).ready(function(){
 			}
 			$('#art h1').html(data.title_news);
 			$('#art p').html(data.body_news);
+			$('#plink').val('http://luminousselfie.com/#art/'+button.data('id'));
+			$('#ppic').val('http://luminousselfie.com/SA350p/images/media/uploads/'+data.image_arr[0].image);
 			$('#art .fb-large').data('id', button.data('id'));
 			$('#art .tw-large').data('id', button.data('id'));
 			location.href='http://luminousselfie.com/site/#art/'+button.data('id');

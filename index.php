@@ -1,4 +1,6 @@
 <?php
+header('Access-Control-Allow-Origin: *');
+
 include("funciones.php");
 $peeps = get_people();
 $articles = get_magazine();
@@ -9,11 +11,9 @@ $articles = get_magazine();
         <meta charset="utf-8">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta property="og:title" content="Luminous Magazine">
-        <meta property="og:site_name" content="Luminous Selfie"/>
-        <meta property="og:url" content="http://luminousselfie.com/site/#magazine">
-        <meta property="og:image" content="http://luminousselfie.com/site/img/pasta.png">
-        <meta property="og:description" content="Descubre los lugares Luminous en estos artículos que tenemos para ti.">
+        <!--meta property="og:title" content="The Rock" />
+        <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
+        <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /-->
         <link rel="shortcut icon" href="img/favicon.png">
         <link rel="stylesheet" type="text/css" href="fonts/colgate.css">
         <link rel="stylesheet" type="text/css" href="css/foundation.css">
@@ -22,6 +22,7 @@ $articles = get_magazine();
         <link rel="stylesheet"type="text/css" href="css/jquery.fancybox.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/slide.css" />
+        <link rel="stylesheet" type="text/css" href="css/nanoscroller.css" />
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
         <script type="text/javascript" src="js/lib/vendor/jquery.js"></script>
@@ -32,12 +33,76 @@ $articles = get_magazine();
         <script src="js/lib/skrollr/skrollr.menu.min.js"></script>
         <script src="js/lib/jquery.masonry.min.js"></script>
         <script src="js/main.js"></script>
+        <script src="js/jquery.nanoscroller.min.js"></script>
 
         <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
         <!-- the jScrollPane script -->
         <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="js/jquery.contentcarousel.js"></script>
+        <link href="css/showLoading.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="js/jquery.showLoading.js"></script>
 
+        <script type="text/javascript" src="http://nexus.ensighten.com/colgatepalmolive/Bootstrap.js"></script>
+
+        <script>
+            // Additional JS functions here
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '527616370633192', // App ID
+                    //channelUrl : '//www.efectototal.com/channel.html', // Channel File
+                    status     : true, // check login status
+                    cookie     : true, // enable cookies to allow the server to access the session
+                    xfbml      : true  // parse XFBML
+                });
+
+                // Additional init code here
+                jsFBLogin=function(){
+                    FB.getLoginStatus(function(response) {
+                        if (response.status === 'connected') {
+                            // connected
+                        } else if (response.status === 'not_authorized') {
+                            // not_authorized
+                            login();
+                        } else {
+                            // not_logged_in
+                            login();
+                        }
+                    });
+                };
+            }
+
+            function publishStory() {
+                pname = $('#art h1').html();
+                pcaption = 'Descubre los lugares Luminous en estos artículos que tenemos para ti';
+                pdesc = $('#art p').html();
+                plink = $('#plink').val();
+                ppicture = $('#ppic').val();
+            
+                FB.ui({
+                    method: 'feed',
+                    name: pname,
+                    caption: pcaption,
+                    description: pdesc,
+                    link: plink,
+                    picture: ppicture,
+                    actions: [{ name: 'Descubre los lugares Luminous en estos artículos que tenemos para ti', link: 'http://luminousselfie.com/#magazine' }]
+                },
+                function(response) {
+                    //addShare(response['post_id'],1);
+                });
+            }
+            
+            // Load the SDK Asynchronously
+            (function(d){
+                var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement('script'); js.id = id; js.async = true;
+                js.src = "//connect.facebook.net/en_US/all.js";
+                ref.parentNode.insertBefore(js, ref);
+            }(document));
+
+            $(".nano").nanoScroller();
+        </script>
 
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -52,15 +117,17 @@ $articles = get_magazine();
 
     </head>
     <body prefix="og: http://ogp.me/ns#">
+        <input type="hidden" id="plink" name="plink">
+        <input type="hidden" id="ppic" name="ppic">
         <div class="nav bar">
             <img class="logo-part" src="./img/logo-p1.png">
             <ul>
                 <li><a href="#inicio" data-menu-top="0"><img src="./img/luminus-white.png"></a></li>
                 <li><a href="#iluminadores" data-menu-top="300p">INSTANT</a></li>
-                <li><a href="#gente" data-menu-top="800p">GENTE</a></li>
-                <li><a class="btn-magazine" href="#magazine" data-menu-top="900p">MAGAZINE</a></li>
-                <li><a href="https://www.facebook.com/ColgateMexico" target="_blank"><img src="./img/facebook.png"></a></li>
-                <li><a href="https://www.youtube.com/user/colgatemexico" target="_blank"><img src="./img/youtube.png"></a></li>
+                <li><a href="#gente" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/gente');" data-menu-top="800p">GENTE</a></li>
+                <li><a class="btn-magazine" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/magazine');" href="#magazine" data-menu-top="900p">MAGAZINE</a></li>
+                <li><a href="https://www.facebook.com/ColgateMexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/facebook_ColgateMexico');" target="_blank"><img src="./img/facebook.png"></a></li>
+                <li><a href="https://www.youtube.com/user/colgatemexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/youtube_colgatemexico');" target="_blank"><img src="./img/youtube.png"></a></li>
             </ul>
             <div class="red-fill"></div>
         </div>
@@ -113,17 +180,17 @@ $articles = get_magazine();
             <a class="boton-up" href="#decidir" data-menu-top="200p"><img src="./img/boton-flecha-arriba.png"></a>
             <div class="background-rojo">
                 <img 
-                    data-_sparkles-0="transform:translate(10%,0%);opacity:0" 
-                    data-_sparkles-20p="transform:translate(-34%,12%);opacity:0.9"
-                    data-_sparkles-80p="transform:translate(-116%,48%);opacity:0.9"
+                    data-_sparkles-0="transform:translate(10%,0%);opacity:0;filter:blur(0px)" 
+                    data-_sparkles-20p="transform:translate(-34%,12%);opacity:0.9;filter:blur(2px)"
+                    data-_sparkles-80p="transform:translate(-116%,48%);opacity:0.9;filter:blur(0px)"
                     data-_sparkles-150p="transform:translate(-130%,60%);opacity:0" 
-                    src="./img/sparkles2.png" class="sparkles">
+                    src="./img/sparkles.png" class="sparkles">
                 <img 
-                    data-_sparkles-0="transform:translate(10%,0%);opacity:0" 
-                    data-_sparkles-20p="transform:translate(-14%,12%);opacity:0.8"
-                    data-_sparkles-80p="transform:translate(-86%,48%);opacity:0.8"
+                    data-_sparkles-0="transform:translate(10%,0%);opacity:0;filter:blur(0px)" 
+                    data-_sparkles-20p="transform:translate(-14%,12%);opacity:0.8;filter:blur(4px)"
+                    data-_sparkles-80p="transform:translate(-86%,48%);opacity:0.8;filter:blur(0px)"
                     data-_sparkles-150p="transform:translate(-110%,60%);opacity:0" 
-                    src="./img/sparkles1.png" class="sparkles">
+                    src="./img/sparkles.png" class="sparkles">
                 <img 
                     data-_sparkles-0="transform:translate(0%,0%);opacity:0" 
                     data-_sparkles-20p="transform:translate(-24%,12%);opacity:1"
@@ -178,27 +245,27 @@ $articles = get_magazine();
         <div id="articulos" class="container Articulos" data-_sparkles-300p="transform:translate(0,100%);" data-_sparkles-400p="transform:translate(0,0%);" data-_sparkles-500p="transform:translate(0,-100%);">
             <a class="boton-up" href="#blanquear" data-menu-top="600p"><img src="./img/boton-flecha-arriba.png"></a>
             <div class="articulos-list">
-                <a class="articulos1 products-box" href="#sl0">
+                <a onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/prod_cremaDentalInstant');" class="articulos1 products-box" href="#sl0">
                     <img src="./img/pasta_2.png"
                          data-_sparkles-310p="transform:translate(0,-200%);opacity:0" 
                          data-_sparkles-400p="transform:translate(0,0%);opacity:1">
                 </a>
-                <a class="articulos2 products-box" href="#sl0"> 
+                <a onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/prod_cepilloColgate360');" class="articulos2 products-box" href="#sl0"> 
                     <img src="./img/cepillos.png"
                          data-_sparkles-310p="transform:translate(0,50%);opacity:0" 
                          data-_sparkles-400p="transform:translate(0,0%);opacity:1">
                 </a>
-                <a class="articulos3 products-box" href="#sl0">
+                <a onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/prod_enguajeColgate');" class="articulos3 products-box" href="#sl0">
                     <img src="./img/enjuague.png"
                          data-_sparkles-310p="transform:translate(0,200%);opacity:0" 
                          data-_sparkles-400p="transform:translate(0,0%);opacity:1">
                 </a>
-                <a class="articulos4 products-box" href="#sl0">
+                <a onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/prod_cremaDentalWhite');" class="articulos4 products-box" href="#sl0">
                     <img src="./img/pasta_4.png"
                          data-_sparkles-310p="transform:translate(-100%,0);opacity:0" 
                          data-_sparkles-400p="transform:translate(0%,0);opacity:1">
                 </a>
-                <a class="articulos5 products-box" href="#sl0">
+                <a onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/prod_cremaDentalAdvanced');" class="articulos5 products-box" href="#sl0">
                     <img src="./img/pasta_3.png"
                          data-_sparkles-310p="transform:translate(100%,0);opacity:0" 
                          data-_sparkles-400p="transform:translate(0%,0);opacity:1">
@@ -254,43 +321,33 @@ $articles = get_magazine();
                         <div class="ca-item ca-item-1">
                             <div class="ca-item-main">
                                 <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[0]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[0]['image'] ?>"></a></div>
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[1]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[1]['image'] ?>"></a></div>
+                                <div style="position: relative;height: 184px;"><img src="http://luminousselfie.com/SA350p/images/media/uploads/proximo.png"></div>
                             </div>
                         </div>
-                        <div class="ca-item ca-item-2">
+                        <?php
+                        for ($i = 1; $i < sizeof($articles); $i++) {
+                            echo '<div art="'.$i.'" class="ca-item ca-item-4">
                             <div class="ca-item-main">
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[2]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[2]['image'] ?>"></a></div>
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[3]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[3]['image'] ?>"></a></div>
-                            </div>
-                        </div>
-                        <div class="ca-item ca-item-3">
-                            <div class="ca-item-main">
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[4]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[4]['image'] ?>"></a></div>
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[5]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[5]['image'] ?>"></a></div>
-                            </div>
-                        </div>
-                        <div class="ca-item ca-item-4">
-                            <div class="ca-item-main">
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[6]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[6]['image'] ?>"></a></div>
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[7]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[7]['image'] ?>"></a></div>
-                            </div>
-                        </div>
-                        <div class="ca-item ca-item-5">
-                            <div class="ca-item-main">
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[6]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[6]['image'] ?>"></a></div>
-                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="<? echo $articles[7]['id_news'] ?>"><img src="http://luminousselfie.com/SA350p/images/media/uploads/<? echo $articles[7]['image'] ?>"></a></div>
-                            </div>
-                        </div>
+                                <div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="' . $articles[$i]['id_news'] . '"><img src="http://luminousselfie.com/SA350p/images/media/uploads/' . $articles[$i]['image'] . '"></a></div>';
+                            if (isset($articles[$i + 1])) {
+                                $i++;
+                                echo '<div style="position: relative;height: 184px;"><a class="article-box" href="#art" data-id="' . $articles[$i]['id_news'] . '"><img src="http://luminousselfie.com/SA350p/images/media/uploads/' . $articles[$i]['image'] . '"></a></div>';
+                            }else
+                                echo '<div style="position: relative;height: 184px;"><img src="http://luminousselfie.com/SA350p/images/media/uploads/proximo.png"></div>';
+                            echo '</div>
+                        </div>';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
             <a class="last boton-up" href="#gente" data-menu-top="800p"><img src="./img/boton-flecha-arriba.png"></a>
             <div class="footer">
                 <ul class="ul">
-                    <li class="li"><a target="_blank" href="http://www.colgatepalmolive.com.mx">WWW.COLGATEPALMOLIVE.COM.MX</a></li>
-                    <li class="li"><a target="_blank" href="http://www.colgate.com.mx">WWW.COLGATE.COM.MX</a></li>
-                    <li class="li"><a class="footer-box" href="#politicas">POLITICAS LEGALES / PRIVACIDAD</a></li>
-                    <li class="li"><a target="_blank" href="http://www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp">CONTACTO</a></li>
+                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgatepalmolive.com.mx');" href="http://www.colgatepalmolive.com.mx">WWW.COLGATEPALMOLIVE.COM.MX</a></li>
+                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx');" href="http://www.colgate.com.mx">WWW.COLGATE.COM.MX</a></li>
+                    <li class="li"><a class="footer-box" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/#politicas');" href="#politicas">POLITICAS LEGALES / PRIVACIDAD</a></li>
+                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp');" href="http://www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp">CONTACTO</a></li>
                 </ul>
                 <p class="parrafo">CONSULTA REGULARMENTE A TU ODONTÓLOGO, SSA: 143300202D0281© 2014 Colgate-Palmolive Company. Todos los derechos reservados. © 2014 Colgate-Palmolive Company. Todos los derechos reservados.</p>
             </div>
@@ -385,10 +442,10 @@ $articles = get_magazine();
                 <div class="small-6 columns">
                     <div class="desc">
                         <h1></h1>
-                        <p></p>
+                        <p class="frame" id="scrolling"></p>
                         <div class="row">
                             <div class="small-6 columns">
-                                <a class="btn fb-large"></a>
+                                <a onclick="publishStory();"  class="btn fb-large"></a>
                             </div>
                             <div class="small-6 columns">
                                 <a class="btn tw-large"></a>
@@ -464,4 +521,65 @@ $articles = get_magazine();
                     </script>
 
                     </html>
+
+                    <!-- Dynamic SiteCatalyst code version: H.x. Copyright 1997-2004 Omniture, Inc. More info available at http://www.omniture.com -->
+                    <script language="JavaScript">
+                        <!--
+                        var s_account='CPMXAll,CPMXColgateLuminous ';
+                        -->
+                    </script><script language='JavaScript' src='/Colgate/Common/s_code_remote_h.js'></script>
+
+                    <script language="JavaScript">
+                        <!--
+                        _omniture.pageName='www.luminousselfie.com/index.php';
+                        _omniture.server='www.colgate.com';
+                        _omniture.channel='main';
+                        _omniture.account='CPMXAll,CPMXColgateLuminous ';
+                        _omniture.prop1='Latin America';
+                        _omniture.prop2='Mexico';
+                        _omniture.prop3='Spanish';
+                        _omniture.prop4='Oral Care';
+                        _omniture.prop5='Oral Care Products';
+                        _omniture.prop6='Toothpaste';
+                        _omniture.prop7='Colgate Luminous Instant';
+                        _omniture.prop7='Colgate Luminous Instant';
+                        _omniture.linkInternalFilter='javascript:,/Luminous';
+                        _omniture.hier1='Colgate Universal,';
+                        -->
+                    </script>
+                    <script type="text/javascript">
+                    setTimeout(function () {
+                        var startY = 0;
+                        var startX = 0;
+                        var b = document.body;
+                        b.addEventListener('touchstart', function (event) {
+                            parent.window.scrollTo(0, 1);
+                            startY = event.targetTouches[0].pageY;
+                            startX = event.targetTouches[0].pageX;
+                        });
+                        b.addEventListener('touchmove', function (event) {
+                            event.preventDefault();
+                            var posy = event.targetTouches[0].pageY;
+                            var h = parent.document.getElementById("scrolling");
+                            var sty = h.scrollTop;
+
+                            var posx = event.targetTouches[0].pageX;
+                            var stx = h.scrollLeft;
+                            h.scrollTop = sty - (posy - startY);
+                            h.scrollLeft = stx - (posx - startX);
+                            startY = posy;
+                            startX = posx;
+                        });
+                        }, 1000);
+                    </script>
+                    <script language='JavaScript' src='/Colgate/Common/s_code_remote_h_post.js'></script>
+                    <script language="JavaScript">
+                        <!--
+                        var s_code=_omniture.t();
+                        if(s_code) {
+                            alert("s_code="+s_code);
+                            document.write(s_code); } //--></script>
+                    <!-- End SiteCatalyst code version: H.x. -->
+                    <noscript><img src="http://CPARAll.112.2o7.net/b/ss/CPMXAll,CPMXColgateLuminous/1/1/H.7--NS/123456?pageName=www.luminousselfie.com/index.php" width="1" height="1" border="0" /></noscript>
+
                     </body>
