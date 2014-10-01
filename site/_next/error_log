@@ -1,0 +1,4 @@
+[29-Aug-2014 16:28:59 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/funciones.php on line 17
+[08-Sep-2014 21:27:55 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
+[08-Sep-2014 21:28:03 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
+[08-Sep-2014 21:28:09 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
