@@ -46,12 +46,12 @@ $articles = get_magazine();
         <input type="hidden" id="plink" name="plink">
         <input type="hidden" id="ppic" name="ppic">
         <div class="site-preloader">
+            <img src="./img/logo-colgate.png" class="imgCarga">
+            <p class="cargando">cargando</p>
             <div class="preloader-spinner">
-                <div class="rect1"></div>
-                <div class="rect2"></div>
-                <div class="rect3"></div>
-                <div class="rect4"></div>
-                <div class="rect5"></div>
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
             </div>
         </div>
         <div class="nav bar">
