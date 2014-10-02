@@ -69,6 +69,18 @@ $articles = get_magazine();
             </ul>
             <div class="red-fill"></div>
         </div>
+        <img 
+        data-50p="transform:translate(0,-15%)" 
+        data-100p="transform:translate(0,0%)"
+        data-120p="transform:translate(0,20%)"
+        data-200p="transform:translate(0,0%)"
+        data-220p="transform:translate(0,20%)"
+        data-300p="transform:translate(0,5%)"
+        data-_sparkles-200p="transform:translate(0,5%)"
+        data-_sparkles-220p="transform:translate(0,20%)"
+        data-_sparkles-300p="transform:translate(0,-5%); opacity: 1"
+        data-_sparkles-320p="transform:translate(0,-50%); opacity: 0"
+        src="./img/pasta.png" class="pasta1">
         <!--  ++++++++++++  PAG. INICIO-->
         <div id="inicio" class="container Inicio" data-0="transform:translate(0,0%)" data-100p="transform:translate(0,-100%);">
             <!---->
@@ -81,7 +93,7 @@ $articles = get_magazine();
                     <!--img src="./img/logo-colgate.png" class="logo-luminous"-->
                     <h1 class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
                     <!--transform:translate(0,100%)-->
-                    <img data-50p="transform:translate(0,0%)" data-100p="transform:translate(0,-20%)" src="./img/pasta.png" class="pasta1">
+                    <!--img data-50p="transform:translate(0,0%)" data-100p="transform:translate(0,-20%)" src="./img/pasta.png" class="pasta1"-->
                     <p class="selfie sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
                     <p class="leyenda sombra_blanca">*El efEcto blanqueador instantáneo es temporal.  CONSULTA REGULARMENTE A TU ODONTÓLOGO.   SSA: 143300202D0281</p>
                     <a class="boton-down" href="#decidir" data-menu-top="100p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
@@ -98,7 +110,7 @@ $articles = get_magazine();
                 <div class="text">
                     <h1 data-80p="opacity:0" data-100p="opacity:1" class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
                     <p data-80p="opacity:0" data-100p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
-                    <img data-50p="transform:translate(0,-195%)" data-100p="transform:translate(0,0%)" data-150p="transform:translate(0,50%)" data-200p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2">
+                    <!--img data-50p="transform:translate(0,-195%)" data-100p="transform:translate(0,0%)" data-150p="transform:translate(0,50%)" data-200p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2"-->
                     <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
                     <a class="boton-down" href="#escoger" data-menu-top="200p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
@@ -114,7 +126,7 @@ $articles = get_magazine();
                 <div class="text">
                     <h1 data-180p="opacity:0" data-200p="opacity:1" class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
                     <p data-180p="opacity:0" data-200p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
-                    <img data-120p="transform:translate(0,-180%)" data-200p="transform:translate(0,0%)" data-250p="transform:translate(0,50%)" data-300p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2">
+                    <!--img data-120p="transform:translate(0,-180%)" data-200p="transform:translate(0,0%)" data-250p="transform:translate(0,50%)" data-300p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2"-->
                     <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
                     <a class="boton-down" href="#iluminadores" data-menu-top="300p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
@@ -172,7 +184,7 @@ $articles = get_magazine();
                 <div class="text">
                     <h1 data-280p="opacity:0" data-300p="opacity:1" class="tittle">CON ILUMINADORES<br>ÓPTICOS</h1>
                     <h1 data-_sparkles-80p="opacity:0" data-_sparkles-100p="opacity:1" class="tittle sub">DIENTES BLANCOS<br>AL INSTANTE.</h1>
-                    <img data-220p="transform:translate(0,-180%)" data-300p="transform:translate(0,0%)" data-500p="transform:translate(0,0%)" data-550p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta">
+                    <!--img data-220p="transform:translate(0,-180%)" data-300p="transform:translate(0,0%)" data-500p="transform:translate(0,0%)" data-550p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta"-->
                     <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
                     <a class="boton-down" href="#iluminadores" data-menu-top="600p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
@@ -227,7 +239,7 @@ $articles = get_magazine();
                     <h1 data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1" class="tittle">LÍNEA COMPLETA,<br>RESULTADOS INCREÍBLES.</h1>
                     <p data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1" class="contexto">Con cepillo, enjuague y pasta de dientes juntos,<br>tu sonrisa brillará mucho más.</p>
                     <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
-                    <img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" src="./img/pasta.png" class="pasta">
+                    <!--img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" src="./img/pasta.png" class="pasta"-->
                     <a class="boton-down" href="#gente" data-menu-top="700p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
             </div>

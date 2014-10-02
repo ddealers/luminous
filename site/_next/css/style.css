@@ -3,6 +3,9 @@
 	padding: 0;
 	font-family: 'colgate_readyregular';
 }
+a{
+	text-decoration: none;
+}
 
 /* ------------------------ PRELOADER */
 .site-preloader{
@@ -136,6 +139,12 @@ h1 span{
 }
 img.btn-abajo{
 
+}
+img.pasta1{
+	position: fixed;
+	top: 50%;
+	z-index: 1;
+	left: 50%;
 }
 p.selfie{
 	font-size: 24px;
