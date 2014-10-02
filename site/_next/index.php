@@ -60,8 +60,8 @@ $articles = get_magazine();
                 <li><a href="#inicio" data-menu-top="0"><img src="./img/luminus-white.png"></a></li>
                 <li><a href="#iluminadores" data-menu-top="300p">INSTANT</a></li>
                 <li><a href="#productos" data-menu-top="600p">PRODUCTOS</a></li>
-                <!--li><a href="#">CONCURSO</a></li>
-                <li><a href="#">SELFIES</a></li-->
+                <li><a href="#concurso">CONCURSO</a></li>
+                <li><a href="#vota">SELFIES</a></li>
                 <li><a href="#gente" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/gente');" data-menu-top="700p">GENTE</a></li>
                 <li><a class="btn-magazine" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/magazine');" href="#magazine" data-menu-top="800p">MAGAZINE</a></li>
                 <li><a href="https://www.facebook.com/ColgateMexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/facebook_ColgateMexico');" target="_blank"><img src="./img/facebook.png"></a></li>
