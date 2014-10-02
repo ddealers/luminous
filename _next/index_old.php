@@ -1,8 +1,8 @@
-<?php/*
+<?php
 include("funciones.php");
 $peeps = get_people();
 $articles = get_magazine();
-*/?>
+?>
 <!DOCTYPE html>
 <html>
 	<head>
