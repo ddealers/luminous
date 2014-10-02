@@ -1,10 +1,10 @@
-<?php
+<?php/*
 header('Access-Control-Allow-Origin: *');
 
 include("funciones.php");
 $peeps = get_people();
 $articles = get_magazine();
-?>
+*/?>
 <!DOCTYPE html>
 <html>
     <head>
