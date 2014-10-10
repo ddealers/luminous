@@ -2,3 +2,34 @@
 [08-Sep-2014 21:27:55 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
 [08-Sep-2014 21:28:03 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
 [08-Sep-2014 21:28:09 UTC] PHP Fatal error:  Call to undefined function base_url() in /home/alguse/public_html/site/index.php on line 98
+[01-Oct-2014 19:25:29 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 19:25:43 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 19:27:42 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:50:39 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:51:26 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:52:17 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:56:09 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:56:27 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 21:57:28 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 22:42:48 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:02 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:24 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:28 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:30 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:51 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:52 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 22:43:53 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 19
+[01-Oct-2014 23:44:45 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:31 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:41 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:43 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:44 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:44 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:45 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:45 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:45:45 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:46:26 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:47:16 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:50:34 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:52:22 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
+[01-Oct-2014 23:53:20 UTC] PHP Fatal error:  Class 'Database' not found in /home/alguse/public_html/site/_next/funciones.php on line 5
