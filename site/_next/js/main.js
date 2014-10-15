@@ -1,46 +1,342 @@
 $(document).ready(function(){
+
+	/* Cambiar aquí al momento de migrar el sitio */
+	var baseURL = 'http://luminousselfie.com/site/_next/';
+	var uploadsURL = 'http://luminousselfie.com/site/uploads/';
+
 	//===== Clean preloader =====
 	$(window).load(function() { // makes sure the whole site is loaded
 		$('.site-preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
 	})
 
+	//===== User Data =====
+	var UserData = {}
+	/*
+	$.ajax({
+		type: "post",
+		url: "concurso.php",
+		data: {
+			action: 'loadPics',
+			uid: 2
+		},
+		dataType: "json",
+		success: function(response) {
+			console.log(response);
+		},
+		error: function() {
+			alert("Error en login");
+		}
+	});
+	*/
 	//===== FB =====
 	window.fbAsyncInit = function() {
 		FB.init({
         	appId      : '527616370633192',
+        	cookie     : true,
         	xfbml      : true,
         	version    : 'v2.0'
         });
 	};
 
-	(function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js";
-		fjs.parentNode.insertBefore(js, fjs);
+	// Load the SDK asynchronously
+	(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/sdk.js";
+	fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
 
-	function publishStory() {
-		pname = $('#art h1').html();
-		pcaption = 'Descubre los lugares Luminous en estos artículos que tenemos para ti';
-		pdesc = $('#art p').html();
-		plink = $('#plink').val();
-		ppicture = $('#ppic').val();
-		FB.ui({
-			method: 'feed',
-			name: pname,
-			caption: pcaption,
-			description: pdesc,
-			link: plink,
-			picture: ppicture,
-			actions: [{ name: 'Descubre los lugares Luminous en estos artículos que tenemos para ti', link: 'http://luminousselfie.com/#magazine' }]
-		},
-		function(response) {
-			//addShare(response['post_id'],1);
+	function setInfoFB() {
+		FB.api('/me', function(response) {
+			console.log(response);
+			UserData.fbid = response.id;
+			$('#rnombre').val(response.name);
+			$('#rmail').val(response.email);
 		});
 	}
 
+	$('#fbconnect').on('click', fblogin);
+	function fblogin(e) {
+		e.preventDefault();
+		FB.login(function(response){
+			if (response.status === 'connected') {
+				setInfoFB();
+			}
+		},{scope: 'public_profile,email'});
+	}
+
+	function vsetInfoFB() {
+		FB.api('/me', function(response) {
+			console.log(response);
+			UserData.fbid = response.id;
+			$('#vrnombre').val(response.name);
+			$('#vrmail').val(response.email);
+		});
+	}
+	$('#vfbconnect').on('click', vfblogin);
+	function vfblogin(e) {
+		e.preventDefault();
+		FB.login(function(response){
+			if (response.status === 'connected') {
+				vsetInfoFB();
+			}
+		},{scope: 'public_profile,email'});
+	}
+
+
+	//===== Concurso =====
+	$('#lsconnect').on('click', login);
+	function login(e) {
+		e.preventDefault();
+		var terminos = $('#terminos').is(':checked');
+		var ticket = $('#rticket').val();
+		var name = $('#rnombre').val();
+		var tel = $('#rtel').val();
+		var mail = $('#rmail').val();
+
+		if(!terminos){
+			alert('Debes aceptar los terminos y condiciones');
+			return;
+		}
+		if(ticket === ""){
+			alert('Debes escribir un número de ticket');
+			return;
+		}
+		if(name === ""){
+			alert('Debes escribir tu nombre');
+			return;
+		}
+		if(tel === ""){
+			alert('Debes escribir un teléfono válido');
+			return;
+		}
+		if(mail === ""){
+			alert('Debes escribir un correo válido');
+			return;
+		}
+
+		$.ajax({
+			type: "post",
+			url: "concurso.php",
+			data: {
+				action: 'save',
+				name: name,
+				tel: tel,
+				mail: mail,
+				ticket: ticket
+			},
+			dataType: "json",
+			success: function(response) {
+				if(response.success){
+					UserData.name = name;
+					UserData.id = response.id;
+					if(UserData.fbid){
+						$('.photo-thumb').attr('src', 'http://graph.facebook.com/'+UserData.fbid+'/picture?type=large');
+						$('.photo-cont').css({background:'url(http://graph.facebook.com/'+UserData.fbid+'/picture?type=large) rgb(255,255,255) no-repeat center center', 'background-size':'cover'});
+					}else{
+						$('.photo-thumb').attr('src', '');
+						$('.photo-cont').css({
+							'background-color':'rgba(255,255,255)',
+							'background-repeat':'no-repeat',
+							'background-position':'center center',
+							'background-size':'cover'});
+					}
+					$('.photo-info p').text(UserData.name);
+					TweenLite.set('#concurso2',{display: 'block'});
+					TweenLite.from('#concurso2', 0.5, {opacity: 1, x: '-100%', ease: Back.easeOut});
+					TweenLite.to('#concurso1', 0.5, {opacity: 0, x: '100%', ease: Back.easeOut, onComplete: function(){
+						TweenLite.set('#concurso1', {display: 'none'});
+					}});
+				}
+			}
+		});
+	}
+	$('#rparticipa').on('click',uploadPhoto);
+	function uploadPhoto(e){
+		e.preventDefault();
+		var ctx = $('#render')[0].getContext('2d'),
+			ctxData = null;
+		var img = new Image();
+		img.crossOrigin = "Anonymous";
+		img.onload = function(){
+			$('#render').attr('width',img.width);
+			$('#render').attr('height',img.height);
+			ctx.drawImage(img, 0,0);
+			ctxData = $('#render')[0].toDataURL('image/jpeg', 0.8);
+			$.ajax({
+				type: "post",
+				url: "concurso.php",
+				data: {
+					image: ctxData,
+					uid: UserData.id,
+					action: 'savePic'
+				},
+				dataType: "json",
+				success: function(response){
+					console.log(response);
+					if(response.success){
+						UserData.pic = uploadsURL+response.nombre;
+						TweenLite.set('#concurso3',{display: 'block'});
+						TweenLite.from('#concurso3', 0.5, {opacity: 1, x: '-100%', ease: Back.easeOut});
+						TweenLite.to('#concurso2', 0.5, {opacity: 0, x: '100%', ease: Back.easeOut, onComplete: function(){
+							TweenLite.set('#concurso2', {display: 'none'});
+						}});
+					}else{
+						alert("No se pudo subir la imagen, intenta nuevamente.");
+					}
+				},
+				error: function() {
+					alert("Error al subir la imagen");
+				}
+			});
+		}
+		bgURL = $('.photo-cont').css('background-image');
+		img.src = bgURL.substr(4).substr(0, bgURL.length-5);
+	}
+	$('#cambiarfoto').on('click', function(e){
+		e.preventDefault();
+		$('#rimage').trigger('click');
+	});
+	$('#rimage').on('change',loadImage);
+	function loadImage(e){
+		var f = e.currentTarget;
+		var photo = $('.photo-cont');
+		var file = f.files[0];
+		var reader = new FileReader();
+
+		TweenLite.to(photo, 1, {opacity: 0, scale: 0, ease: Cubic.easeOut});
+		reader.onloadend = function () {
+			var img = reader.result;
+			$('.photo-thumb').attr('src',img);
+			photo.css({'background-image':'url('+img+')'});
+			TweenLite.to(photo, 1, {opacity: 1, scale: 1, ease: Elastic.easeOut});
+		}
+		if (file) {
+			reader.readAsDataURL(file);
+		}
+	}
+	$('.fb-xlarge').on('click', function(e){
+		e.preventDefault();
+		var id = UserData.id;
+		FB.ui({
+			method: 'feed',
+			name: 'Selfie',
+			caption: '',
+			description: '',
+			link: baseURL + '?s=' + btoa(id) + '#selfies',
+			picture: UserData.pic,
+			actions: [{ name: 'Comparte tu #LUMINOUSSELFIE', link: baseURL + '?s=' + btoa(id) + '#selfies' }]
+		});
+	});
+	$('.tw-xlarge').on('click', function(e){
+		e.preventDefault();
+		var id = UserData.id;
+		url = encodeURIComponent(baseURL + '?s=' + btoa(id) + '#selfies');
+		window.open('https://twitter.com/share?url='+url, 'Compartir en Twitter','width=480, height=320');
+	});
+
+
+	$('.selfie').on('click', function(e){
+		e.preventDefault();
+		var sid = $(this).attr('href').replace('#selfie/','');
+		$.post('concurso.php',{action:'loadPics',uid:sid},function(response){
+			console.log(response);
+			$('#prime .photo-thumb').attr('src',uploadsURL+response.principal.image);
+			$('#prime .photo-info p.name').text(response.principal.name);
+			$('#prime .photo-info p.votos').text(response.principal.votes+" votos");
+			$('#prime .photo-cont').css({'background-image':'url('+uploadsURL+response.principal.image+')'});
+			$('#prime .like').val(sid);
+			$('#prime .mayor').val(parseInt(sid)+1);
+		},'json');
+	});
+	$('#prime .like').on('click', function(e){
+		e.preventDefault();
+		sid = $(this).val();
+		if(!UserData.id){
+			alert('Debes registrarte antes de votar');
+			TweenLite.set('#selfies-registro',{display: 'block'});
+			TweenLite.from('#selfies-registro', 0.5, {opacity: 1, x: -100, ease: Back.easeOut});
+			TweenLite.to('#selfies-container', 0.5, {opacity: 0, x: 100, ease: Back.easeOut, onComplete: function(){
+				TweenLite.set('#selfies-container', {display: 'none'});
+			}});
+			return;
+		}
+		$.post('concurso.php',{action:'like',uid:UserData.id, fid:sid},function(response){
+			if(response.success){
+				alert('Le has dado un voto a esta #LuminousSelfie');
+			}else{
+				alert('Ha habido un error al asignar el voto, inténtalo de nuevo en unos minutos');
+			}
+		},'json');
+	});
+	$('#vlsconnect').on('click', vlogin);
+	function vlogin(e) {
+		e.preventDefault();
+		var terminos = $('#vterminos').is(':checked');
+		var name = $('#vrnombre').val();
+		var tel = $('#vrtel').val();
+		var mail = $('#vrmail').val();
+
+		if(!terminos){
+			alert('Debes aceptar los terminos y condiciones');
+			return;
+		}
+		if(name === ""){
+			alert('Debes escribir tu nombre');
+			return;
+		}
+		if(tel === ""){
+			alert('Debes escribir un teléfono válido');
+			return;
+		}
+		if(mail === ""){
+			alert('Debes escribir un correo válido');
+			return;
+		}
+
+		$.ajax({
+			type: "post",
+			url: "concurso.php",
+			data: {
+				action: 'save',
+				name: name,
+				tel: tel,
+				mail: mail,
+			},
+			dataType: "json",
+			success: function(response) {
+				if(response.success){
+					UserData.id = response.id;
+					TweenLite.set('#selfies-container',{display: 'block', x:0, opacity:1});
+					TweenLite.from('#selfies-container', 0.5, {opacity: 1, x: -100, ease: Back.easeOut});
+					TweenLite.to('#selfies-registro', 0.5, {opacity: 0, x: 100, ease: Back.easeOut, onComplete: function(){
+						TweenLite.set('#selfies-registro', {display: 'none'});
+					}});
+				}
+			}
+		});
+	}
+	$('#prime .mayor').on('click', function(e){
+		e.preventDefault();
+		sid = $(this).val();
+		loadPics(sid);
+	});
+	function loadPics(sid){
+		$.post('concurso.php',{action:'loadPics',uid:sid},function(response){
+			console.log(response);
+			if(response.principal.name){
+				$('#prime .photo-thumb').attr('src',uploadsURL+response.principal.image);
+				$('#prime .photo-info p.name').text(response.principal.name);
+				$('#prime .photo-info p.votos').text(response.principal.votes+" votos");
+				$('#prime .photo-cont').css({'background-image':'url('+uploadsURL+response.principal.image+')'});
+				$('#prime .like').val(sid);
+				$('#prime .mayor').val(parseInt(sid)+1);
+			}else{
+				loadPics(1);
+			}
+		},'json');
+	}
 	//===== Mobile =====
 	function detectmob() { 
 		if( navigator.userAgent.match(/Android/i)
@@ -95,14 +391,6 @@ $(document).ready(function(){
     ga('create', 'UA-54247712-1', 'auto');
     ga('send', 'pageview');
 
-	//===== Navbar Auto =====
-	function updateNavBar(){
-		var afterWidth = $('div.nav.bar').width()-$('div.nav.bar img').width()-$('div.nav.bar ul').width();
-		$('div.nav.bar .red-fill').width(afterWidth + 200);
-	}
-	$(window).on('resize', updateNavBar);
-	updateNavBar();
-
 	//===== Container Auto Height =====
 	function updateContainer(){
 		$('div.container').height($(window).height());
@@ -119,14 +407,18 @@ $(document).ready(function(){
 		}
 	});
 	skrollr.menu.init(s);
+	if( String(location.hash).indexOf('#selfies') > -1){
+		var a = $('<a>').attr('data-menu-top','800p');
+		skrollr.menu.click(a[0]);
+	}
 
 	//===== Init Fancybox =====
 	$('.article-box').on('click', function(e){
 		e.preventDefault();
 		var button = $(this),
 			url = '../article.php?id=' + $(this).data('id');
-
 		$.get(url, function(data){
+			console.log(data);
 			var pos = 0;
 			$('#art .gal .track').empty();
 			if(data.image_arr != null){
@@ -161,11 +453,9 @@ $(document).ready(function(){
 			}
 			$('#art h1').html(data.title_news);
 			$('#art p').html(data.body_news);
-			$('#plink').val('http://luminousselfie.com/#art/'+button.data('id'));
-			$('#ppic').val('http://luminousselfie.com/SA350p/images/media/uploads/'+data.image_arr[0].image);
 			$('#art .fb-large').data('id', button.data('id'));
 			$('#art .tw-large').data('id', button.data('id'));
-			location.href='http://luminousselfie.com/site/#art/'+button.data('id');
+			//location.href='http://luminousselfie.com/site/#art/'+button.data('id');
 		});
 	});
 	$('.article-box').fancybox({
@@ -180,49 +470,57 @@ $(document).ready(function(){
 		var index = $(this).index();
 		pslider.slickGoTo(index);
 	});
+	$('.bases').fancybox();
+
+	$('#bases').css({width: $(window).width()*.90, height: $(window).height()*.78, display: 'none'});
+	$('#videos').css({width: $(window).width()*.90, height: $(window).height()*.78, display: 'none'});
+	$('#politicas').css({width: $(window).width()*.90, height: $(window).height()*.78, display: 'none'});
 
 	//===== Init Slider =====
 	var pslider = {};
 	pslider = $('.pslider').slick({
 		dots: true,
 		onInit: function(){
-			$('#sl0').css({width: $(window).width()*.95, height: $(window).height()*.78, display: 'none'});
-			$('#art').css({width: $(window).width()*.95, height: $(window).height()*.78, display: 'none'});
+			$('#sl0').css({width: $(window).width()*.90, height: $(window).height()*.78, display: 'none'});
+			$('#art').css({width: $(window).width()*.90, height: $(window).height()*.78, display: 'none'});
 		}
 	});
-	
+
 	//===== Social Media Buttons =====
 	$('.fb-large').on('click', function(e){
 		e.preventDefault();
 		if($(this).data('id')){
 			var id = $(this).data('id');
-			//url = encodeURIComponent('http://luminousselfie.com/site/og.php?id='+id);
-			url = encodeURIComponent('http://luminousselfie.com/site/#art/'+id);
-			//$('meta[property="og:title"]').attr('content', $('#art h1').text());
-			//$('meta[property="og:url"]').attr('content', url);
-			//$('meta[property="og:image"]').attr('content', $('#art .gal img'));
+			pname = $('#art h1').html();
+			pcaption = 'Descubre los lugares Luminous en estos artículos que tenemos para ti';
+			pdesc = $('#art p').html();
+			plink = encodeURIComponent(baseURL+'#art/'+id);
+			ppicture = $('#ppic').val();
+			FB.ui({
+				method: 'feed',
+				name: pname,
+				caption: pcaption,
+				description: pdesc,
+				link: plink,
+				picture: ppicture,
+				actions: [{ name: 'Descubre los lugares Luminous en estos artículos que tenemos para ti', link: 'http://luminousselfie.com/#magazine' }]
+			});
 		}else{
-			url = encodeURIComponent('http://luminousselfie.com/site/'+$(this).attr('href'));
+			FB.ui({
+				method: 'feed',
+				caption: pcaption,
+				link: encodeURIComponent(baseURL+$(this).attr('href')),
+				actions: [{ name: 'Descubre los lugares Luminous en estos artículos que tenemos para ti', link: 'http://luminousselfie.com/#magazine' }]
+			});
 		}
-		/*FB.ui({
-			method: 'share',
-			href: url,
-		}, function(response) {
-			/*if (response && !response.error_code) {
-				alert('Posting completed.');
-			} else {
-				alert('Error while posting.');
-			}
-		});*/
-		window.open('http://www.facebook.com/sharer.php?u='+url, 'Compartir en Facebook','width=480, height=320');
 	});
 	$('.tw-large').on('click', function(e){
 		e.preventDefault();
 		if($(this).data('id')){
 			var id = $(this).data('id');
-			url = encodeURIComponent('http://luminousselfie.com/site/#art/'+id);
+			url = encodeURIComponent(baseURL+'#art/'+id);
 		}else{
-			url = encodeURIComponent('http://luminousselfie.com/site/'+$(this).attr('href'));
+			url = encodeURIComponent(baseURL+$(this).attr('href'));
 		}
 		window.open('https://twitter.com/share?url='+url, 'Compartir en Twitter','width=480, height=320');
 	});

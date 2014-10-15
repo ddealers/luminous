@@ -1,0 +1,1024 @@
+@import 'nib'
+*
+	margin 0
+	padding 0
+	font-family 'colgate_readyregular'
+html, body
+	width 100%
+	height 100%
+a
+	text-decoration none
+ul
+	list-style-type none
+img
+	border none
+
+//Keyframes
+@keyframes bouncedelay
+	0%, 80%, 100%
+		transform: scale(0.0)
+	40%
+		transform: scale(1.0)
+
+@keyframes stretchdelay
+	0%, 40%, 100%
+		transform: scaleY(0.4)
+	20%
+		transform: scaleY(1.0)
+
+// Preloader
+.site-preloader
+	size 100% 100%
+	background #A00
+	z-index 100
+	position fixed
+	.preloader-content
+		absolute top left bottom right
+		size 30% 35%
+		margin: auto;
+		color: #fff;
+		text-align: center;
+		p
+			font-family:'avenir_next_condensed';
+			font-size: 25px;
+			text-transform: uppercase;
+			text-align: center;
+		.preloader-spinner
+			margin: auto;
+			size 50% 10%
+			text-align: center;
+			font-size: 1rem;
+			absolute top 16rem left 0 bottom 0 right 0
+			> div
+				size 1rem
+				background-color: #fff;
+				border-radius: 100%;
+				display: inline-block;
+				animation: bouncedelay 1.4s infinite ease-in-out;
+				animation-fill-mode: both;
+				&.bounce1
+					animation-delay: -0.32s;
+				&.bounce2
+					animation-delay: -0.16s;
+
+//Nav Bar
+.nav.bar
+	background url(../img/logo-p3.png) no-repeat right
+	background-size 2% 100%
+	fixed z-index 5
+	size 100% 4.5vw
+	> img
+		width 15%
+		absolute top left
+	ul
+		margin 0
+		size 83.3% 100%
+		absolute top left 15%
+		overflow hidden
+		background url(../img/logo-p2.png) no-repeat
+		background-size 100% 100%
+		display inline-flex
+		justify-content space-between
+		li
+			min-width 40px
+			a
+				display block
+				color #fff
+				text-align center
+				font-size 1vw
+				padding-top 2.6vw
+				img
+					margin -1.1vw auto 0 
+					width 6vw
+					display block
+					&.fb
+						margin-top -0.7vw
+						width 2.6vw
+					&.yt
+						margin-top -1.6vw
+		overflow hidden
+
+//Pasta
+img.pasta1
+	fixed top 48.5vh left 50vw
+	z-index 1
+	height 25vw
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+		fixed top 27vw left 50vw
+	@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2)
+		fixed top 27vw left 50vw
+	@media only screen and (-webkit-min-device-pixel-ratio : 1.5)
+		fixed top 20vw left 50vw
+	@media only screen and (min-device-pixel-ratio : 1.5)
+		fixed top 20vw left 50vw
+	@media only screen and (min-width: 680px) and (max-width: 690px)
+		fixed top 20vw left 50vw
+
+//Containers
+.container
+	overflow hidden
+	//background url(../img/bg1_.png) no-repeat
+	background-color #e21f2f
+	background-size cover
+	size 100%
+	fixed top 0 left 0
+	.contenido-pag
+		size 80% 100%
+		margin 0 auto
+		position relative
+		> img
+			height 90%
+			margin-top 10%
+		.text
+			absolute top 20% left 50%
+			text-align center
+			h1
+				color: #5f5f5e	
+				font-family 'avenir_next_condensed'
+				font-size 6vw
+				line-height 6vw
+				margin 0
+				span
+					color: #e61d14
+					font-weight normal
+					font-family 'avenir_next_condensed'
+					font-weight 600
+	.boton-up
+		absolute top 4.5vw right 0 z-index 4
+		width 3vw
+		@media only screen and (-webkit-min-device-pixel-ratio : 1.5)
+			top 3vw
+		@media only screen and (min-device-pixel-ratio : 1.5)
+			top 3vw
+		@media only screen and (min-width: 680px) and (max-width: 690px)
+			top 3vw
+		img
+			width 100%
+	.boton-down
+		absolute bottom 0 right 0 z-index 4
+		width 3vw
+		@media screen and (min-device-height: 1024px) and (max-device-width: 768px)
+			bottom 0
+		@media only screen and (-webkit-min-device-pixel-ratio : 1.5)
+			bottom -1vw
+		@media only screen and (min-device-pixel-ratio : 1.5)
+			bottom -1vw
+		@media only screen and (min-width: 680px) and (max-width: 690px)
+			bottom -1vw
+		img
+			width 100%
+	p
+		font-size 1.9vw
+		line-height 1.2
+		color: #565655
+		font-family 'avenir_next_condensed'
+		&.leyenda
+			font-size 0.8vw
+			text-transform uppercase
+			font-family 'colgate_readybold'
+			absolute bottom 0 right 3vw
+			margin 1vw
+		span
+			&.LuminousSelfie
+				color #5f5f5e
+				font-family 'avenir_next_bold'
+			&.link
+				font-weight bold
+				font-family 'avenir_next_bold'
+			&.rojo
+				color #e61d14
+				font-family 'avenir_next_bold'
+	.sombra_blanca
+		text-shadow 0px 0px 10px #fff, 0 0 20px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 70px #fff, 0 0 100px #fff
+		@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)
+			text-shadow 0px 0px 10px #fff
+		@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 2)
+			text-shadow 0px 0px 10px #fff
+		@media only screen and (-webkit-min-device-pixel-ratio : 1.5)
+			text-shadow 0px 0px 10px #fff
+		@media only screen and (min-device-pixel-ratio : 1.5)
+			text-shadow 0px 0px 10px #fff
+		@media only screen and (min-width: 680px) and (max-width: 690px)
+			text-shadow 0px 0px 10px #fff
+	&.Inicio
+		p
+			&.selfie
+				margin-top 21vw
+	&.Iluminadores
+		//background url(../img/fondo.png) no-repeat
+		background-color #e21f2f
+		background-size cover
+		.contenido-pag
+			.text 
+				h1
+					color #fff
+					font-family: 'colgate_readybold';
+					font-size 3.5vw
+					line-height: 1.3
+		.sparkles
+			position: absolute;
+			top: 5vw;
+			left: 50vw;
+			z-index: 3;
+		.diente-container
+			absolute top 4vw left -13vw
+			width 53vw
+			img
+				width 100%
+				//&.diente
+				&.dienteSucio
+					absolute top left
+		.drama
+			color #fff
+			font-size 2vw
+			absolute left 22vw top 33vw
+			font-weight 500
+		.banner
+			absolute left -10vw bottom 2vw
+			height 8vw
+		p.leyenda
+			color #fff
+	&.Articulos
+		//background url(../img/fondo.png) no-repeat
+		background-color #e21f2f
+		size 100%
+		background-size cover
+		.contenido-pag
+			.articulos-list
+				width 36vw
+				.articulos1 img
+					height 33vw
+					margin-top 10vw
+				.articulos2 img
+					height 30vw
+					margin-top 10vw
+				.articulos3 img
+					height 29vw
+					margin-top 10vw
+					//@media screen and (min-device-height: 960px) and (orientation: landscape)
+					//	height 25vw
+			.text 
+				h1
+					color #fff
+					font-family: 'colgate_readybold';
+					font-size 3.2vw
+					line-height: 1.3
+				p
+					color #fff
+					font-size 1.8vw
+					font-family 'colgate_readyregular'
+		p.leyenda
+			color #fff
+	&.Concurso
+		> div
+			absolute top 3vw left bottom right
+			size 90% 80%
+			margin auto
+			background rgb(176,25,27)
+			border-radius 10px
+			box-shadow rgba(0,0,0,0.7) 0px 0px 25px
+			.btn
+				background url(../img/caja-boton.png)no-repeat center center
+				background-size cover
+				size 8vw 2.4vw
+				color #fff
+				font-size 1vw
+				text-align center
+			.bases
+				absolute bottom 1vw left 3vw
+			&#concurso1
+				.asset-paso1
+					absolute top -2vw left -3vw
+				.row:nth-child(2)
+					text-align center
+					color #fff
+					h2
+						font-family 'colgate_readyregular'
+						font-size 3vw
+						color #fff
+					p
+						font-size 2vw
+						line-height 1.4
+						color #fff
+					.ticket
+						width 50%
+						padding 0.3vw
+						font-size 1.5vw
+						text-align center
+						color #333
+				.row:nth-child(3)
+					margin-top 1vw
+					.columns
+						color #fff
+						height 100%
+						text-align center
+						img
+							width 75%
+						.input
+							width 80%
+							padding 0.3vw
+							margin 0.3vw
+							font-size 1.5vw
+							color #333
+						.terminos
+							width 80%
+							color #fff
+							margin 1vw auto
+							overflow hidden
+							input
+								float left
+							.txt
+								width 85%
+								color #fff
+								font-size 1vw
+								float left
+								text-align left
+								margin-left 1vw
+				.row:nth-child(4)
+					.registrate
+						margin auto
+						display block
+						size 12vw 3.6vw
+						padding-top 0.5vw
+						font-size 1.4vw
+					.txt
+						color #fff
+						text-align center
+						margin 1vw auto
+						width 55%
+						font-size 2vw
+			&#concurso2
+				display none
+				.asset-paso2
+					absolute top -2vw left -3vw
+				.row:nth-child(2)
+					text-align center
+					color #fff
+					h1
+						font-family 'colgate_readyregular'
+						font-size 3vw
+						color #fff
+				.row:nth-child(3)
+					height 80%
+					div:nth-child(2)
+						height 100%
+					#rparticipa
+						size 12vw
+						display block
+						margin 7vw auto 0
+						img
+							width 100%
+					#rimage
+						size 0
+						overflow hidden
+					canvas
+						display none
+					.photo
+						width 275px
+						height 335px
+						display block
+						absolute top -1vw left 5vw
+						transform rotate(5deg)
+						overflow hidden
+						background-color #fff
+						box-shadow 0 0 35px rgb(0,0,0)
+						.photo-thumb
+							absolute top left 0.4vw
+							width 16%
+							z-index 1
+						.photo-info
+							absolute top left 5vw
+							z-index 2
+							width 80%
+							p
+								margin 0
+							a
+								color #f00
+						.photo-cover
+							position absolute
+							z-index 1
+						.photo-cont
+							size 100%
+							absolute top 4vw left bottom right
+							margin auto
+							z-index 0
+			&#concurso3
+				display none
+				.asset-paso3
+					absolute top -2vw left -3vw
+				.row:nth-child(2)
+					text-align center
+					color #fff
+					h1
+						font-family 'colgate_readyregular'
+						font-size 4vw
+						margin 0
+						color #fff
+					p
+						font-family 'colgate_readyregular'
+						font-size 3vw
+						color #fff
+				.row:nth-child(3)
+					a
+						display block
+						margin 3vw auto
+						size 16vw 3.6vw
+						&.fb-xlarge
+							background url(../img/fb-large.png) no-repeat
+							background-size cover
+						&.tw-xlarge
+							background url(../img/tw-large.png) no-repeat
+							background-size cover
+					.photo-container
+						display block
+						size 22vw 30vw
+						absolute top 1vw left 5vw
+						transform rotate(5deg)
+						box-shadow 0 0 35px rgb(0,0,0)
+						header
+							background #c41f1f
+							size 100% 10%
+							overflow hidden
+							absolute top left
+							img:nth-child(1)
+								absolute top 0.5vw left 0.5vw
+							img:nth-child(2)
+								absolute top right 0.5vw
+								height 100%
+						.photo
+							size 100% 89%
+							display block
+							absolute top left
+							margin-top 15%
+							background-color #fff
+							overflow hidden
+							.photo-thumb
+								absolute top left 0.4vw
+								width 16%
+								z-index 1
+							.photo-info
+								absolute top left 5vw
+								z-index 2
+								width 80%
+								p
+									font-size 1.2vw
+									margin 1vw 0
+							.photo-cover
+								position absolute
+								z-index 1
+							.photo-cont
+								size 100%
+								absolute top 4vw left bottom right
+								margin auto
+								z-index 0
+					/*.photo
+						width 55%
+						display block
+						position absolute
+						top -2vw
+						left 5vw
+					*/
+	&.Selfies
+		> div
+			absolute top 5vw left bottom right
+			size 90% 85%
+			margin auto
+			background rgb(176,25,27)
+			border-radius 10px
+			box-shadow rgba(0,0,0,0.7) 0px 0px 25px
+		button
+			padding 0
+			width 4.2vw
+			height 4vw
+			&.like
+				background url(../img/like.png) no-repeat
+				background-size cover
+				absolute right -3vw bottom 4vw
+			&.mayor
+				background url(../img/mayor.png) no-repeat
+				background-size cover
+				absolute right -3vw bottom 0vw
+		#selfies-container
+			h1
+				font-family 'colgate_readyregular'
+				font-size 3vw
+				color #fff
+				text-align center
+				margin-bottom 0
+			.others
+				size 50% 23%
+				margin 5vw auto 0
+				padding-left: 3vw
+				ul
+					size 80%
+					display inline-flex
+					align-items center
+					justify-content space-between
+					li.photo-container
+						display block
+						size 15% 65%
+						position relative
+						header
+							background #c41f1f
+							size 100% 10%
+							overflow hidden
+							absolute top left
+							img:nth-child(1)
+								absolute top 0.2vw left 0.5vw
+								height 80%
+							img:nth-child(2)
+								absolute top right 0.5vw
+								height 80%
+						.photo
+							size 100% 6.2vw
+							display block
+							absolute top left
+							margin-top 13%
+							background-color #fff
+							overflow hidden
+							.photo-thumb
+								display none
+							.photo-info
+								text-align center
+								absolute top left z-index 2
+								overflow hidden
+								height 1.2vw
+								width 100%
+								background-color #fff
+								p
+									font-size 0.7vw
+									margin 0.1vw 0 0
+							.photo-cover
+								position absolute
+								z-index 1
+							.photo-cont
+								size 100%
+								absolute top left bottom right
+								margin auto
+								z-index 0
+								background-color rgba(255,255,255,255)
+								background-repeat no-repeat
+								background-position center center
+								background-size cover
+						/*
+						position relative
+						width 20%
+						text-align center
+						float left
+						*/
+						.like
+							size 2vw
+			#prime
+				height 50%
+				.main
+					size 30% 100%
+					margin 0 auto
+					display block
+					position relative
+					//img 
+					//	height 100%
+					.photo-container
+						display block
+						size 20vw 27vw
+						transform rotate(5deg)
+						box-shadow 0 0 35px rgb(0,0,0)
+						margin 2vw auto 0
+						header
+							background #c41f1f
+							size 100% 10%
+							overflow hidden
+							absolute top left
+							img:nth-child(1)
+								absolute top 0.2vw left 0.5vw
+							img:nth-child(2)
+								absolute top right 0.5vw
+								height 85%
+						.photo
+							size 100% 90%
+							display block
+							absolute top left
+							margin-top 13%
+							background-color #fff
+							overflow hidden
+							.photo-thumb
+								absolute top left 0.4vw
+								width 16%
+								z-index 1
+								clip rect(0px,4vw,3vw,0px)
+							.photo-info
+								absolute top left 5vw
+								z-index 2
+								width 80%
+								p
+									font-size 1.2vw
+									margin 0.5vw 0 0
+									&.votos
+										margin-top 0.1vw
+										color #f00
+							.photo-cover
+								absolute top left
+								z-index 1
+								width 100%
+							.photo-cont
+								size 100%
+								absolute top 4vw left bottom right
+								margin auto
+								z-index 0
+								background-color rgba(255,255,255,255)
+								background-repeat no-repeat
+								background-position center center
+								background-size cover
+			.btn
+				background url(../img/caja-boton.png)no-repeat center center
+				background-size cover
+				size 8vw 2.4vw
+				color #fff
+				font-size 1vw
+				text-align center
+			.bases
+				absolute bottom 1vw left 3vw
+			.premios
+				absolute bottom 1vw left 12vw
+		#selfies-registro
+			display none
+			.asset-paso1
+				absolute top -2vw left -3vw
+			.row:nth-child(1)
+				text-align center
+				color #fff
+				h2
+					font-family 'colgate_readyregular'
+					font-size 3vw
+					color #fff
+				p
+					font-size 2vw
+					line-height 1.4
+					color #fff
+				.ticket
+					width 50%
+					padding 0.3vw
+					font-size 1.5vw
+					text-align center
+					color #333
+			.row:nth-child(2)
+				margin-top 1vw
+				.columns
+					color #fff
+					height 100%
+					text-align center
+					img
+						width 75%
+					.input
+						width 80%
+						padding 0.3vw
+						margin 0.3vw
+						font-size 1.5vw
+						color #333
+					.terminos
+						width 80%
+						color #fff
+						margin 1vw auto
+						overflow hidden
+						input
+							float left
+						.txt
+							width 85%
+							color #fff
+							font-size 1vw
+							float left
+							text-align left
+							margin-left 1vw
+			.row:nth-child(3)
+				.registrate
+					margin auto
+					display block
+					size 12vw 3.6vw
+					padding-top 0.5vw
+					font-size 1.4vw
+				.txt
+					color #fff
+					text-align center
+					margin 1vw auto
+					width 55%
+					font-size 2vw
+			.btn
+				background url(../img/caja-boton.png)no-repeat center center
+				background-size cover
+				size 8vw 2.4vw
+				color #fff
+				font-size 1vw
+				text-align center
+			.bases
+				absolute bottom 1vw left 3vw
+			.premios
+				absolute bottom 1vw left 12vw
+	&.Gente
+		//background url(../img/fondo.png) no-repeat
+		background-color #e21f2f
+		background-size cover
+		.contenido-pag
+			.people
+				absolute top 9vw
+				width 45vw
+				.pip
+					size 28vw 13vw
+					margin auto
+					position relative
+					overflow hidden
+					> div
+						absolute top left
+						size 100% 95%
+						&.pip-p
+							background url(../img/marco-p.png) no-repeat
+							background-size cover
+							absolute top 1.5vw left 4.5vw
+							size 80% 70%
+							padding-top 1vw
+							z-index 1
+							p
+								text-align left
+								font-size 1.1vw
+								&.pip-name
+									absolute top 1vw left 3.3vw
+								&.pip-content
+									absolute top 3vw left 3.3vw
+									width 18vw
+								a
+									font-size 1.1vw
+						&.pip-img
+							text-align: left;
+							overflow: hidden;
+							top: 1.8vw;
+							left: 1.3vw;
+							height: 67%;
+							width: 70%;
+							img
+								height: 120%;
+						&.pip-back
+							z-index 0
+							background url(../img/marco-back.png) no-repeat
+							background-size cover
+			.text 
+				h1
+					color #fff
+					font-family: 'colgate_readybold';
+					font-size 3.2vw
+					line-height: 1.3
+				p
+					color #fff
+					font-size 1.8vw
+					font-family 'colgate_readyregular'
+				.diente2
+					width 50vw
+					margin-top -5vw
+	&.Magazine
+		//background url(../img/fondo.png) no-repeat
+		background-color #e21f2f
+		background-size cover
+		.contenido-pag
+			.row
+				text-align center
+				h1
+					color #fff
+					font-family: 'colgate_readybold';
+					font-size 3.2vw
+					line-height: 1.3
+				p
+					color #fff
+					font-size 1.8vw
+					font-family 'colgate_readyregular'
+			.row:nth-child(1)
+				padding 7vw 0 0
+			.row:nth-child(1) .columns .btn
+				width 12.3vw
+				height 2.8vw
+				display block
+				margin-top 5vw
+				background-size cover
+			a
+				float left
+				&.fb-large
+					background url(../img/fb-large.png) no-repeat
+				&.tw-large
+					background url(../img/tw-large.png) no-repeat
+					margin-left 1vw
+			.row:nth-child(2)
+				height 60%
+				.ca-container
+					width 100%
+					height 90%
+					margin 0
+					.ca-nav span
+						width 2vw
+						height 4vw
+						margin-top -1.5vw
+						left -3.4vw
+						z-index 8
+						background-size cover
+						&.ca-nav-next
+							left auto
+							right -3.4vw
+
+//Footer
+.footer
+	absolute bottom 0 left 0
+	background url(../img/footer.png) no-repeat
+	background-size cover
+	size 100% 3.5vw
+	ul
+		margin: 0
+		li
+			display inline-block
+			font-size 0.9vw
+			text-align center
+			width 24.7%
+			a
+				color #fff
+	p.parrafo
+		color #fff
+		font-size 0.8vw
+		width 100%
+		text-align center
+
+//Politicas
+#politicas
+	padding 3vw
+	h1
+		color #fff
+		text-align center
+		font-size 2.3vw
+	p
+	ul
+	ol
+		color #fff
+		text-align left
+		font-size 1vw
+
+//Bases
+#bases
+	padding 3vw
+	h1
+		color #fff
+		text-align center
+		font-size 2.3vw
+	p
+		color #fff
+		text-align left
+		font-size 1vw
+
+//Productos Slider
+.slider0
+	width 100%
+	height 100%
+	.pslider
+		height 100%
+		.slick-prev
+		.slick-prev:hover
+		.slick-prev:focus
+			left 1vw
+			background url(../img/boton-flecha-atras.png) no-repeat
+			size 1.5vw 3vw
+			background-size cover
+		.slick-next
+		.slick-next:hover.slick-next:focus
+			right 1vw
+			background url(../img/boton-flecha-adelante.png) no-repeat
+			size 1.5vw 3vw
+			background-size cover
+		.slick-prev::before
+		.slick-next::before
+			content ""
+			display none
+		.slick-slide
+			.row
+				.thumb
+					margin auto
+				.desc
+					height 18vw
+					text-align center
+					margin-top 10vw
+					padding-right 3vw
+					h1
+						color #fff
+						font-size 3vw
+						font-family: 'colgate_readybold';
+					p
+						text-align center
+						color #fff
+						font-size 1.5vw
+						margin-top 1vw
+					ol
+						color #fff
+						font-size: 1.2vw
+	.slick-dots
+		bottom 0
+		li button:before
+		li.slick-active button:before
+			color: #fff
+			font-size 1.6vw
+		li button:hover:before
+		li button:focus:before
+			font-size 1.6vw
+
+//Articulos
+.Articulo > .row 
+	height 100%
+	> div 
+		height 100%
+		.gal
+			margin auto
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			height 35vw
+			overflow hidden;
+			.gal-next
+				display block
+				background url(../img/boton-flecha-adelante.png) no-repeat
+				size 2vw 4vw
+				background-size cover
+				absolute top 40% right 0
+			.gal-prev
+				display block
+				background url(../img/boton-flecha-atras.png) no-repeat
+				size 2vw 4vw
+				background-size cover
+				absolute top 40% left 0
+			.track
+				size 100%
+			img
+				width 100%
+				position absolute
+				margin auto
+				top 0
+				left 0
+				right 0
+				bottom 0
+		.desc
+			padding-top 3vw
+			h1
+				font-family: 'colgate_readybold';
+				color #fff
+				font-size 2.3vw
+				text-align left
+			p
+				text-align: justify;
+				color: #fff;
+				font-size: 1vw;
+				margin-top: 1vw;
+				height: 20vw;
+				padding-right: 2vw;
+				overflow-y: auto;
+			//@media screen and (min-device-height: 960px)
+			//	font-size 1.5vw
+			.row
+				.columns 
+					.btn
+						width 12.3vw
+						height 2.8vw
+						display block
+						margin 1vw auto
+						&.fb-large
+							background url(../img/fb-large.png) no-repeat
+							background-size cover
+						&.tw-large
+							background url(../img/tw-large.png) no-repeat
+							background-size cover
+
+//Fancybox
+.fancybox-overlay
+.fancybox-opened
+	background rgba(255,0,0,0.3)
+	background-size cover
+	.fancybox-skin
+		background url(../img/fondo.png) no-repeat
+		background-size cover
+		.fancybox-inner
+			overflow hidden !important
+		.fancybox-close
+			background url(../img/boton-tache.png) no-repeat
+			top 1.5vw
+			right 3.5vw
+			width 3.2vw
+			height 3.2vw
+			background-size cover
+
+//Frame
+.frame
+	overflow-y scroll
+	overflow-x hidden
+	&::-webkit-scrollbar
+		-webkit-appearance: none
+	&::-webkit-scrollbar:vertical
+		width 1vw
+	&::-webkit-scrollbar:horizontal
+		height 1vw
+	&::-webkit-scrollbar-thumb
+		border-radius 1vw
+		background-color #fa3535
+	&::-webkit-scrollbar-track
+		background-color #ab1818
+		border-radius 1vw
+

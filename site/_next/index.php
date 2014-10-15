@@ -1,9 +1,11 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-
 include("funciones.php");
+$sid = isset($_REQUEST['s']) ? base64_decode($_REQUEST['s']) : NULL;
 $peeps = get_people();
 $articles = get_magazine();
+$selfies = load_pics($sid);
+$uploadsURL = 'http://luminousselfie.com/site/uploads/';
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,9 +13,7 @@ $articles = get_magazine();
         <meta charset="utf-8">
         <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <!--meta property="og:title" content="The Rock" />
-        <meta property="og:url" content="http://www.imdb.com/title/tt0117500/" />
-        <meta property="og:image" content="http://ia.media-imdb.com/images/rock.jpg" /-->
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
         <meta property="og:image" content="http://luminousselfie.com/site/img/girl1.png" />
         <link rel="shortcut icon" href="img/favicon.png">
         <link rel="stylesheet" type="text/css" href="fonts/colgate.css">
@@ -46,12 +46,14 @@ $articles = get_magazine();
         <input type="hidden" id="plink" name="plink">
         <input type="hidden" id="ppic" name="ppic">
         <div class="site-preloader">
-            <img src="./img/logo-colgate.png" class="imgCarga">
-            <p class="cargando">cargando</p>
-            <div class="preloader-spinner">
-                <div class="bounce1"></div>
-                <div class="bounce2"></div>
-                <div class="bounce3"></div>
+            <div class="preloader-content">
+                <img src="./img/logo-colgate.png" class="imgCarga">
+                <p class="cargando">cargando</p>
+                <div class="preloader-spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
             </div>
         </div>
         <div class="nav bar">
@@ -60,44 +62,42 @@ $articles = get_magazine();
                 <li><a href="#inicio" data-menu-top="0"><img src="./img/luminus-white.png"></a></li>
                 <li><a href="#iluminadores" data-menu-top="300p">INSTANT</a></li>
                 <li><a href="#productos" data-menu-top="600p">PRODUCTOS</a></li>
-                <li><a href="#concurso">CONCURSO</a></li>
-                <li><a href="#vota">SELFIES</a></li>
-                <li><a href="#gente" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/gente');" data-menu-top="700p">GENTE</a></li>
-                <li><a class="btn-magazine" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/magazine');" href="#magazine" data-menu-top="800p">MAGAZINE</a></li>
-                <li><a href="https://www.facebook.com/ColgateMexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/facebook_ColgateMexico');" target="_blank"><img src="./img/facebook.png"></a></li>
-                <li><a href="https://www.youtube.com/user/colgatemexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/youtube_colgatemexico');" target="_blank"><img src="./img/youtube.png"></a></li>
+                <li><a href="#concurso" data-menu-top="700p">CONCURSO</a></li>
+                <li><a href="#selfies" data-menu-top="800p">SELFIES</a></li>
+                <li><a href="#gente" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/gente');" data-menu-top="900p">GENTE</a></li>
+                <li><a class="btn-magazine" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/magazine');" href="#magazine" data-menu-top="1000p">MAGAZINE</a></li>
+                <li><a href="https://www.facebook.com/ColgateMexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/facebook_ColgateMexico');" target="_blank"><img class="fb" src="./img/facebook.png"></a></li>
+                <li><a href="https://www.youtube.com/user/colgatemexico" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/youtube_colgatemexico');" target="_blank"><img class="yt" src="./img/youtube.png"></a></li>
+                <li><a href="#bases" class="bases">BASES Y CONDICIONES</a></li>
             </ul>
-            <div class="red-fill"></div>
         </div>
         <img 
-        data-50p="transform:translate(0,-15%)" 
+        data-50p="transform:translate(0,-23%)" 
         data-100p="transform:translate(0,0%)"
         data-120p="transform:translate(0,20%)"
         data-200p="transform:translate(0,0%)"
         data-220p="transform:translate(0,20%)"
-        data-300p="transform:translate(0,5%)"
-        data-_sparkles-200p="transform:translate(0,5%)"
+        data-300p="transform:translate(0,0%)"
+        data-_sparkles-200p="transform:translate(0,0%)"
         data-_sparkles-220p="transform:translate(0,20%)"
-        data-_sparkles-300p="transform:translate(0,-5%); opacity: 1"
-        data-_sparkles-320p="transform:translate(0,-50%); opacity: 0"
+        data-_sparkles-300p="transform:translate(0,-5%); display: block; opacity: 1"
+        data-_sparkles-320p="transform:translate(0,-50%); display: none; opacity: 0"
         src="./img/pasta.png" class="pasta1">
         <!--  ++++++++++++  PAG. INICIO-->
         <div id="inicio" class="container Inicio" data-0="transform:translate(0,0%)" data-100p="transform:translate(0,-100%);">
             <!---->
             <!--div class="background-girl"></div-->
             <div class="contenido-pag">
-                <figure>
-                    <img class="girl" src="./img/girl1.png">
-                </figure>
+                <img class="girl" src="./img/girl1.png">
                 <div class="text">
                     <!--img src="./img/logo-colgate.png" class="logo-luminous"-->
-                    <h1 class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
+                    <h1 class="sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
                     <!--transform:translate(0,100%)-->
                     <!--img data-50p="transform:translate(0,0%)" data-100p="transform:translate(0,-20%)" src="./img/pasta.png" class="pasta1"-->
-                    <p class="selfie sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
-                    <p class="leyenda sombra_blanca">*El efEcto blanqueador instantáneo es temporal.  CONSULTA REGULARMENTE A TU ODONTÓLOGO.   SSA: 143300202D0281</p>
-                    <a class="boton-down" href="#decidir" data-menu-top="100p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
+                    <p class="selfie sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><!--br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span--></p>
                 </div>
+                <p class="leyenda sombra_blanca">*El efecto blanqueador instantáneo es temporal. CONSULTA REGULARMENTE A TU ODONTÓLOGO. SSA: 143300202D0281</p>
+                <a class="boton-down" href="#decidir" data-menu-top="100p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
             </div>
         </div>
         <!--  ++++++++++++  DECIDIR NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
@@ -108,12 +108,12 @@ $articles = get_magazine();
                 <!--div class="background-girl2"></div-->
                 <img data-80p="transform:translate(-100%,0);opacity:0" data-100p="transform:translate(0%,0);opacity:1" class="girl" src="./img/girl2.png">
                 <div class="text">
-                    <h1 data-80p="opacity:0" data-100p="opacity:1" class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
-                    <p data-80p="opacity:0" data-100p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
+                    <h1 data-80p="opacity:0" data-100p="opacity:1" class="sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
+                    <p data-80p="opacity:0" data-100p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><!--br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span--></p>
                     <!--img data-50p="transform:translate(0,-195%)" data-100p="transform:translate(0,0%)" data-150p="transform:translate(0,50%)" data-200p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2"-->
-                    <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
-                    <a class="boton-down" href="#escoger" data-menu-top="200p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
+                <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
+                <a class="boton-down" href="#escoger" data-menu-top="200p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
             </div>
         </div>
         <!--  ++++++++++++  ESCOGER NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
@@ -125,11 +125,11 @@ $articles = get_magazine();
                 <!--div class="background-girl3"></div-->
                 <div class="text">
                     <h1 data-180p="opacity:0" data-200p="opacity:1" class="tittle-1 sombra_blanca">Dientes blancos<br> <span class="sombra_blanca"> al instante<span class="asterisco">*</span></span></h1>
-                    <p data-180p="opacity:0" data-200p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span></p>
+                    <p data-180p="opacity:0" data-200p="opacity:1" class="selfie2 sombra_blanca">No es una selfie hasta que es una <span class="LuminousSelfie">#LuminousSelfie</span><!--br><span class="link">www.<span class="rojo">luminous</span>selfie.com</span></span--></p>
                     <!--img data-120p="transform:translate(0,-180%)" data-200p="transform:translate(0,0%)" data-250p="transform:translate(0,50%)" data-300p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta2"-->
-                    <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
-                    <a class="boton-down" href="#iluminadores" data-menu-top="300p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
+                <p class="leyenda sombra_blanca">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
+                <a class="boton-down" href="#iluminadores" data-menu-top="300p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
             </div>
         </div>
         <!--  ++++++++++++  CON ILUMINADORES ÓPTICOS -->
@@ -160,50 +160,37 @@ $articles = get_magazine();
                         <img data-280p="transform:translate(0%,-60%);opacity:0" data-300p="transform:translate(0%,0%);opacity:1" src="./img/diente-con-reloj.png" class="diente">
                         <img data-280p="transform:translate(0%,-60%);opacity:0" data-300p="transform:translate(0%,0%);opacity:1" src="./img/diente-sucio.png" class="dienteSucio"
                         data-_sparkles-80p="opacity:0" >
-                        
+                        <!--
                         <p class="time" 
                            data-_sparkles-0="opacity:0"
                            data-_sparkles-10p="opacity:1"
                            data-_sparkles-40p="opacity:1"
                            data-_sparkles-50p="opacity:0"
-                           ><!--1 minuto--></p>
+                           >1 minuto</p>
                         <p class="time"
                            data-_sparkles-40p="opacity:0"
                            data-_sparkles-50p="opacity:1"
                            data-_sparkles-90p="opacity:1"
                            data-_sparkles-150p="opacity:0"
-                           ><!--2 minutos--></p>
+                           >2 minutos</p>
                         <p class="time" 
                            data-_sparkles-90p="opacity:0"
                            data-_sparkles-150p="opacity:1"
-                           ><!--3 minutos--></p>
+                           >3 minutos</p>
+                       -->
                         <p data-280p="transform:translate(0%,60%);opacity:0" data-300p="transform:translate(0%,0%);opacity:1" class="drama">DRAMATIZACIÓN</p>
                     </div>
-                    <img data-280p="transform:translate(0%,60%);opacity:0" data-300p="transform:translate(0%,0%);opacity:1" src="./img/banner-abajo.png" class="banner">
                 </div>
                 <div class="text">
                     <h1 data-280p="opacity:0" data-300p="opacity:1" class="tittle">CON ILUMINADORES<br>ÓPTICOS</h1>
                     <h1 data-_sparkles-80p="opacity:0" data-_sparkles-100p="opacity:1" class="tittle sub">DIENTES BLANCOS<br>AL INSTANTE.</h1>
                     <!--img data-220p="transform:translate(0,-180%)" data-300p="transform:translate(0,0%)" data-500p="transform:translate(0,0%)" data-550p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta"-->
-                    <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
-                    <a class="boton-down" href="#iluminadores" data-menu-top="600p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
+                <img data-280p="transform:translate(0%,60%);opacity:0" data-300p="transform:translate(0%,0%);opacity:1" src="./img/banner-abajo.png" class="banner">
+                <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
+                <a class="boton-down" href="#articulos" data-menu-top="600p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
             </div> 
         </div>
-        <!--  ++++++++++++  DECIDIR NO ES INSTANTÁNEO, BLANQUEAR TU SONRISA SÍ -->
-        <!--div class="container"></div-->
-        <!--div id="blanquear" class="container Blusas" data-_sparkles-200p="transform:translate(0,100%);" data-_sparkles-300p="transform:translate(0,0%);" data-_sparkles-400p="transform:translate(0,-100%);">
-            <div class="background-girl4"></div>
-            <a class="boton-up" href="#iluminadores" data-menu-top="300p"><img src="./img/boton-flecha-arriba.png"></a>
-            <div class="white-bg"></div>
-            <img data-_sparkles-280p="transform:translate(-100%,0);opacity:0" data-_sparkles-300p="transform:translate(0%,0);opacity:1" class="girl4" src="./img/girl4.png">
-            <div class="text">
-                <h1 class="decide color" data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1">DECIDIR NO ES<br> <span class="decide">INSTANTÁNEO,<br> BLANQUEAR<br></span>TU SONRISA SÍ.</h1>
-                <img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" data-_sparkles-350p="transform:translate(0,50%)" data-_sparkles-400p="transform:translate(0,100%)" src="./img/pasta.png" class="pasta4">
-                <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p-->
-                <!--a class="boton-down bot" href="#articulos" data-menu-top="700p"><img src="./img/boton-flecha-abajo.png"></a>
-            </div>
-        </div-->    
         <!--  ++++++++++++  LÍNEA COMPLETA, RESULTADOS INCREÍBLES. -->
         <div id="articulos" class="container Articulos" data-_sparkles-200p="transform:translate(0,100%);" data-_sparkles-300p="transform:translate(0,0%);" data-_sparkles-400p="transform:translate(0,-100%);">
             <div class="contenido-pag">
@@ -238,14 +225,195 @@ $articles = get_magazine();
                 <div class="text">
                     <h1 data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1" class="tittle">LÍNEA COMPLETA,<br>RESULTADOS INCREÍBLES.</h1>
                     <p data-_sparkles-280p="opacity:0" data-_sparkles-300p="opacity:1" class="contexto">Con cepillo, enjuague y pasta de dientes juntos,<br>tu sonrisa brillará mucho más.</p>
-                    <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
-                    <!--img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" src="./img/pasta.png" class="pasta"-->
-                    <a class="boton-down" href="#gente" data-menu-top="700p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
+                <p class="leyenda">El efecto blanqueador instantáneo es temporal. Consulta regularmente a tu odontólogo. SSA:143300202d0281</p>
+                <!--img data-_sparkles-220p="transform:translate(0,-180%)" data-_sparkles-300p="transform:translate(0,0%)" src="./img/pasta.png" class="pasta"-->
+                <a class="boton-down" href="#gente" data-menu-top="700p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
+            </div>
+        </div>
+        <!--  ++++++++++++  CONCURSO -->
+        <div id="concurso" class="container Concurso" data-_sparkles-300p="transform:translate(0,100%)" data-_sparkles-400p="transform:translate(0,0%)" data-_sparkles-500p="transform:translate(0,-100%)">
+            <div id="concurso1">
+                <img src="./img/PASO-1.png" class="asset-paso1">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h2 class="title">CONCURSO #LUMINOUSSELFIE</h2>
+                        <p class="simple-txt">Compra Luminous White Instant<br>y registra tu Ticket de compra para participar:</p>
+                        <input id="rticket" type="text" name="ticket" placeholder="captura tu No. de ticket" required class="input ticket">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-5 columns">
+                        <a id="fbconnect" href="#"><img src="./img/face_connect.png" width="100px" class="connect"></a>
+                    </div>
+                    <div class="small-2 columns">
+                        O
+                    </div>
+                    <div class="small-5 columns">
+                        <input id="rnombre" type="text" name="Nombre" placeholder="NOMBRE Y APELLIDO" required class="input nombre"><br />
+                        <input id="rtel" type="tel" name="tel" placeholder="TELÉFONO" required class="input tel"><br />
+                        <input id="rmail" type="email" name="Correo" checked="true" placeholder="MAIL" required class="input correo">
+                        <div class="terminos">
+                            <input id="terminos" type="checkbox" class="box" required>
+                            <p class="txt">He leído y acepto los términos y condiciones de la promoción.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <a id="lsconnect" href="#" class="btn registrate">REGÍSTRATE</a>
+                        <p class="txt">Las 100 personas con más votos podrán asistir a la Gran Fiesta Luminous White Instant</p>
+                    </div>
+                </div>
+                <a href="#bases" class="btn bases">BASES</a>
+            </div>
+            <div id="concurso2">
+                <img src="./img/PASO-2.png" class="asset-paso2">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h1 class="titulos sube">SUBE TU #LUMINOUSSELFIE</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-6 columns">
+                        <!--input id="rimage" accept="image/png" type="file"-->
+                        <a id="rparticipa" href="#" class="participa"><img src="./img/participa.png"></a>
+                        <!--a id="rcambiarfoto" href="#" class="cambiarfoto"><img src="./img/cambiarfoto.png"></a-->
+                    </div>
+                    <div class="small-6 columns">
+                        <div class="photo">
+                            <img class="photo-thumb">
+                            <div class="photo-info">
+                                <p></p>
+                                <a id="cambiarfoto" href="#">Cambiar foto</a>
+                            </div>
+                            <img class="photo-cover" src="./img/FOTOluminous.png">
+                            <div class="photo-cont"></div>
+                        </div>
+                        <input id="rimage" type="file" accept="image/png">
+                        <canvas width="275" height="335" id="render"></canvas>
+                    </div>
+                </div>
+                <a href="#bases" class="btn bases">BASES</a>
+            </div>
+            <div id="concurso3">
+                <img src="./img/PASO-3.png" class="asset-paso3">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h1 class="titulos">¡Ya estás participando!</h1>
+                        <p>Comparte tu #LUMINOUSSELFIE</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-6 columns">
+                        <a class="btn fb-xlarge"></a>
+                        <a class="btn tw-xlarge"></a>
+                    </div>
+                    <div class="small-6 columns">
+                        <div class="photo-container">
+                            <header>
+                                <img src="./img/balloonheart.png">
+                                <img src="./img/luminus-white.png">
+                            </header>
+                            <div class="photo">
+                                <img class="photo-thumb">
+                                <div class="photo-info">
+                                    <p></p>
+                                </div>
+                                <img class="photo-cover" src="./img/FOTOluminous.png">
+                                <div class="photo-cont"></div>
+                            </div>
+                        </div>
+                        <!--img class="photo" src="./img/FOTOpaso3.png"-->
+                    </div>
+                </div>
+                <a href="#bases" class="btn bases">BASES</a>
+            </div>
+        </div>
+        <!--  ++++++++++++  SELFIES -->
+        <div id="selfies" class="container Selfies" data-_sparkles-400p="transform:translate(0,100%)" data-_sparkles-500p="transform:translate(0,0%)" data-_sparkles-600p="transform:translate(0,-100%)">
+            <div id="selfies-container">
+                <h1 class="titulos vota">VOTA POR LAS MEJORES #LUMINOUSSELFIE</h1>
+                <div id="prime">
+                    <div class="main">
+                        <div class="photo-container">
+                            <header>
+                                <img src="./img/balloonheart.png">
+                                <img src="./img/luminus-white.png">
+                            </header>
+                            <div class="photo">
+                                <img class="photo-thumb" src="<?php echo $uploadsURL . $selfies['principal']['image'] ?>">
+                                <div class="photo-info">
+                                    <p class="name"><?php echo $selfies['principal']['name'] ?></p>
+                                    <p class="votos"><?php echo $selfies['principal']['votos'] ?> votos</p>
+                                </div>
+                                <img class="photo-cover" src="./img/FOTOluminous.png">
+                                <div class="photo-cont" style="background-image:url(<?php echo $uploadsURL . $selfies['principal']['image'] ?>)"></div>
+                            </div>
+                        </div>
+                        <button value="<?php echo $selfies['principal']['id'] ?>" class="like"></button>
+                        <button value="<?php echo $selfies['principal']['id'] + 1 ?>" class="mayor"></button>
+                    </div>
+                </div>
+                <div class="others">
+                    <ul>
+                        <?php foreach ($selfies['miniaturas'] as $min): ?>
+                            <li class="photo-container">
+                                <a class="selfie" href="#selfie/<?php echo $min['id'] ?>">
+                                <header>
+                                    <img src="./img/balloonheart.png">
+                                    <img src="./img/luminus-white.png">
+                                </header>
+                                <div class="photo">
+                                    <img class="photo-thumb" src="<?php echo $uploadsURL . $min['image'] ?>">
+                                    <div class="photo-info">
+                                        <p><?php echo $min['name'] ?></p>
+                                    </div>
+                                    <img class="photo-cover" src="./img/FOTOluminous.png">
+                                    <div class="photo-cont" style="background-image:url(<?php echo $uploadsURL . $min['image'] ?>)"></div>
+                                </div>
+                                </a>
+                            </li>
+                        <?php endforeach;?>
+                    </ul>
+                </div>
+                <a href="#bases" class="btn bases">BASES</a>
+                <!--a href="#" class="btn premios">PREMIOS</a-->
+            </div>
+            <div id="selfies-registro">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h2 class="title">CONCURSO #LUMINOUSSELFIE</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-5 columns">
+                        <a id="vfbconnect" href="#"><img src="./img/face_connect.png" width="100px" class="connect"></a>
+                    </div>
+                    <div class="small-2 columns">
+                        O
+                    </div>
+                    <div class="small-5 columns">
+                        <input id="vrnombre" type="text" name="Nombre" placeholder="NOMBRE Y APELLIDO" required class="input nombre"><br />
+                        <input id="vrtel" type="tel" name="tel" placeholder="TELÉFONO" required class="input tel"><br />
+                        <input id="vrmail" type="email" name="Correo" checked="true" placeholder="MAIL" required class="input correo">
+                        <div class="terminos">
+                            <input id="vterminos" type="checkbox" class="box" required>
+                            <p class="txt">He leído y acepto los términos y condiciones de la promoción.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="small-12 columns">
+                        <a id="vlsconnect" href="#" class="btn registrate">REGÍSTRATE</a>
+                        <p class="txt">Las 100 personas con más votos podrán asistir a la Gran Fiesta Luminous White Instant</p>
+                    </div>
+                </div>
+                <a href="#bases" class="btn bases">BASES</a>
             </div>
         </div>
         <!--  ++++++++++++  GENTE LUMINOUS -->
-        <div id="gente" class="container Gente" data-_sparkles-300p="transform:translate(0,100%);" data-_sparkles-400p="transform:translate(0,0%);" data-_sparkles-500p="transform:translate(0,-100%);">
+        <div id="gente" class="container Gente" data-_sparkles-500p="transform:translate(0,100%);" data-_sparkles-600p="transform:translate(0,0%);" data-_sparkles-700p="transform:translate(0,-100%);">
             <div class="contenido-pag">
                 <a class="boton-up" href="#blanquear" data-menu-top="600p"><img src="./img/boton-flecha-arriba.png"></a>
                 <div class="people">
@@ -266,19 +434,19 @@ $articles = get_magazine();
                     <h1 class="tittle">GENTE <br>LUMINOUS</h1>
                     <p class="contexto">Personas que han decidido cambiar su sonrisa<br> en un instante.</p>
                     <img src="./img/diente.png" class="diente2">
-                    <a class="boton-down" href="#magazine" data-menu-top="900p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
                 </div>
+                <a class="boton-down" href="#magazine" data-menu-top="900p"><img class="btn-abajo" src="./img/boton-flecha-abajo.png"></a>
             </div>
         </div>
         <!--  ++++++++++++  MAGAZINE LUMINOUS -->
-        <div id="magazine" class="container Magazine" data-_sparkles-400p="transform:translate(0,100%);" data-_sparkles-500p="transform:translate(0,0%);">
+        <div id="magazine" class="container Magazine" data-_sparkles-600p="transform:translate(0,100%);" data-_sparkles-700p="transform:translate(0,0%);">
             <div class="contenido-pag">
                 <div class="row">
                     <div class="small-6 columns">
                         <a class="btn fb-large" href="#magazine"></a>
                         <a class="btn tw-large" href="#magazine"></a>
                     </div>
-                    <div class="small-6 columns" style="width: 600px;">
+                    <div class="small-6 columns">
                         <h1 class="tittle lumag">LUMINOUS MAGAZINE</h1>
                         <p class="contexto magazinef">Descubre los lugares Luminous en estos artículos que tenemos para ti.</p>
                     </div>
@@ -313,17 +481,14 @@ $articles = get_magazine();
             </div>
             <div class="footer">
                 <ul class="ul">
-                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgatepalmolive.com.mx');" href="http://www.colgatepalmolive.com.mx">WWW.COLGATEPALMOLIVE.COM.MX</a></li>
-                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx');" href="http://www.colgate.com.mx">WWW.COLGATE.COM.MX</a></li>
-                    <li class="li"><a class="footer-box" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/#politicas');" href="#politicas">POLITICAS LEGALES / PRIVACIDAD</a></li>
-                    <li class="li"><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp');" href="http://www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp">CONTACTO</a></li>
+                    <li><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgatepalmolive.com.mx');" href="http://www.colgatepalmolive.com.mx">WWW.COLGATEPALMOLIVE.COM.MX</a></li>
+                    <li><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx');" href="http://www.colgate.com.mx">WWW.COLGATE.COM.MX</a></li>
+                    <li><a class="footer-box" onclick="javascript:sendPageViewEvent('','www.luminousselfie.com/#politicas');" href="#politicas">POLITICAS LEGALES / PRIVACIDAD</a></li>
+                    <li><a target="_blank" onclick="javascript:sendLinkEvent('','www.luminousselfie.com/www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp');" href="http://www.colgate.com.mx/app/Colgate/MX/Corp/ContactUs.cvsp">CONTACTO</a></li>
                 </ul>
                 <p class="parrafo">CONSULTA REGULARMENTE A TU ODONTÓLOGO, SSA: 143300202D0281© 2014 Colgate-Palmolive Company. Todos los derechos reservados. © 2014 Colgate-Palmolive Company. Todos los derechos reservados.</p>
             </div>
         </div>
-        <!--
-        
-        -->
         <!--  ++++++++++++  CREMA DENTAL COLGATE LUMINOUS WHITE -->
         <div id="sl0" class="slider0">
             <div class="pslider">
@@ -410,12 +575,12 @@ $articles = get_magazine();
                 </div>
                 <div class="small-6 columns">
                     <div class="desc">
-                        <img src="">
+                        <!--<img src="">-->
                         <h1></h1>
                         <p class="frame" id="scrolling"></p>
                         <div class="row">
                             <div class="small-6 columns">
-                                <a onclick="publishStory();"  class="btn fb-large"></a>
+                                <a class="btn fb-large"></a>
                             </div>
                             <div class="small-6 columns">
                                 <a class="btn tw-large"></a>
@@ -424,6 +589,48 @@ $articles = get_magazine();
                     </div>
                 </div>
             </div>
+        </div>
+        <div id="bases">
+            <h1 class="titulos base">BASES CONCURSO #LUMINOUSSELFIE</h1>
+            <p class="concursoText baseContent">Lorem ipsum dolor est. Lorem ipsum 
+            dolor est. Lorem ipsum dolor est. Lorem 
+            ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est.
+            Lorem ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum
+            dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est. 
+            Lorem ipsum dolor est. Lorem ipsum 
+            dolor est. Lorem ipsum dolor est. Lorem 
+            ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est.
+            Lorem ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum
+            dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est. 
+            Lorem ipsum dolor est. Lorem ipsum 
+            dolor est. Lorem ipsum dolor est. Lorem 
+            ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est.
+            Lorem ipsum dolor est. Lorem ipsum dolor est. Lorem ipsum
+            dolor est. Lorem ipsum dolor est. Lorem ipsum dolor est. </p>
+            <!--<a href="" class="btn bases">BASES</a>
+            <a href="" class="btn premios">PREMIOS</a>->
+        </div>
+        <div id="videos">
+            <h1 class="titulos base">CÁPSULAS LUMINOUS</h1>
+            <img src="./img/" class="video">
+            <button class=""></button>
+            <button class=""></button>
+            <button class="like v1"></button>
+            <button class="mayor v2"></button>
+            <h2>LUIS Y KARLA Cápsula 1</h2>
+            <p>Lorem ipsum dolor est. Lorem ipsum 
+            dolor est. Lorem ipsum dolor est. Lorem 
+            ipsum dolor est. Lorem ipsum dolor est.</p>
+            <img src="" class="vf pr">
+            <p class="parrafo a"></p>
+            <img src="" class="vf se">
+            <p class="parrafo b"></p>
+            <img src="" class="vf te">
+            <p class="parrafo c"></p>
+            <img src="" class="vf cu">
+            <p class="parrafo d"></p>
+            <img src="" class="vf qu">
+            <p class="parrafo e"></p>
         </div>
         <div id="politicas">
             <h1>TÉRMINOS Y CONDICIONES RESPECTO AL USO DE ESTE SITIO</h1>
