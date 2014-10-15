@@ -104,7 +104,11 @@ img {
 }
 .nav.bar ul {
   margin: 0;
+<<<<<<< HEAD
   width: 83.3%;
+=======
+  width: 84.3%;
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   height: 100%;
   position: absolute;
   top: 0;
@@ -126,7 +130,11 @@ img {
   color: #fff;
   text-align: center;
   font-size: 1vw;
+<<<<<<< HEAD
   padding: 2.6vw 1.5vw 0;
+=======
+  padding: 2.6vw 1vw 0;
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
 }
 .nav.bar ul li a img {
   margin: -1.1vw auto 0;
@@ -142,7 +150,11 @@ img {
 }
 img.pasta1 {
   position: fixed;
+<<<<<<< HEAD
   top: 50vh;
+=======
+  top: 48.5vh;
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   left: 50vw;
   z-index: 1;
   height: 25vw;
@@ -334,10 +346,17 @@ img.pasta1 {
   }
 }
 .container.Inicio p.selfie {
+<<<<<<< HEAD
   margin-top: 22vw;
 }
 .container.Iluminadores {
   background: url("../img/fondo.png") no-repeat;
+=======
+  margin-top: 21vw;
+}
+.container.Iluminadores {
+  /*background: url("../img/fondo.png") no-repeat;*/
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -386,7 +405,11 @@ img.pasta1 {
   color: #fff;
 }
 .container.Articulos {
+<<<<<<< HEAD
   background: url("../img/fondo.png") no-repeat;
+=======
+  /*background: url("../img/fondo.png") no-repeat;*/
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   width: 100%;
   height: 100%;
   -webkit-background-size: cover;
@@ -422,8 +445,345 @@ img.pasta1 {
 .container.Articulos p.leyenda {
   color: #fff;
 }
+<<<<<<< HEAD
 .container.Gente {
   background: url("../img/fondo.png") no-repeat;
+=======
+.container.Concurso > div {
+  position: absolute;
+  top: 3vw;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  background: #b0191b;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0,0,0,0.7) 0px 0px 25px;
+  box-shadow: rgba(0,0,0,0.7) 0px 0px 25px;
+}
+.container.Concurso > div .btn {
+  background: url("../img/caja-boton.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+}
+.container.Concurso > div .bases {
+  position: absolute;
+  bottom: 1vw;
+  left: 3vw;
+}
+.container.Concurso > div#concurso1 .asset-paso1 {
+  position: absolute;
+  top: -2vw;
+  left: -3vw;
+}
+.container.Concurso > div#concurso1 .row:nth-child(2) {
+  text-align: center;
+  color: #fff;
+}
+.container.Concurso > div#concurso1 .row:nth-child(2) h2 {
+  font-family: 'colgate_readyregular';
+  font-size: 3vw;
+  color: #fff;
+}
+.container.Concurso > div#concurso1 .row:nth-child(2) p {
+  font-size: 2vw;
+  line-height: 1.4;
+  color: #fff;
+}
+.container.Concurso > div#concurso1 .row:nth-child(2) .ticket {
+  width: 50%;
+  padding: 0.3vw;
+  font-size: 1.5vw;
+  text-align: center;
+  color: #333;
+}
+.container.Concurso > div#concurso1 .row:nth-child(3) {
+  margin-top: 1vw;
+}
+.container.Concurso > div#concurso1 .row:nth-child(3) .columns {
+  color: #fff;
+  height: 100%;
+  text-align: center;
+}
+.container.Concurso > div#concurso1 .row:nth-child(3) .columns img {
+  width: 75%;
+}
+.container.Concurso > div#concurso1 .row:nth-child(3) .columns .input {
+  width: 80%;
+  padding: 0.3vw;
+  margin: 0.3vw;
+  font-size: 1.5vw;
+  color: #333;
+}
+.container.Concurso > div#concurso1 .row:nth-child(4) .registrate {
+  margin: auto;
+  display: block;
+  width: 12vw;
+  height: 3.6vw;
+  padding-top: 0.5vw;
+  font-size: 1.4vw;
+}
+.container.Concurso > div#concurso1 .row:nth-child(4) .txt {
+  color: #fff;
+  text-align: center;
+  margin: 1vw auto;
+  width: 55%;
+  font-size: 2vw;
+}
+.container.Concurso > div#concurso1 .row:nth-child(4) .txt.termino {
+  font-size: 1.2vw;
+  margin-top: -110px;
+  margin-left: 550px;
+}
+.container.Concurso > div#concurso1 .row:nth-child(4) input.box {
+  position: absolute;
+  bottom: 20px;
+  left: 635px;
+}
+.container.Concurso > div#concurso2 {
+  display: none;
+}
+.container.Concurso > div#concurso2 .asset-paso2 {
+  position: absolute;
+  top: -2vw;
+  left: -3vw;
+}
+.container.Concurso > div#concurso2 .row:nth-child(2) {
+  text-align: center;
+  color: #fff;
+}
+.container.Concurso > div#concurso2 .row:nth-child(2) h1 {
+  font-family: 'colgate_readyregular';
+  font-size: 3vw;
+  color: #fff;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) {
+  height: 80%;
+/*
+					#rcambiarfoto
+						size 9vw
+						display block
+						margin 3vw auto 0
+						img
+							width 100%
+					#rimage
+						margin 1vw auto 0
+						width 20vw
+						display block
+					.photo
+						width 65%
+						display block
+						position absolute
+						top -2vw
+						left 5vw
+					#photo
+						transform rotate(-14deg)
+						z-index 1
+						border-radius 1.5vw
+						border 15px solid #fff
+						box-shadow rgba(0,0,0,0.7) 5px 5px 15px
+						absolute 2vw 5vw z-index 1
+						width 65%
+					*/
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) div:nth-child(2) {
+  height: 100%;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) #rparticipa {
+  width: 12vw;
+  height: 12vw;
+  display: block;
+  margin: 7vw auto 0;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) #rparticipa img {
+  width: 100%;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo {
+  width: 60%;
+  height: 95%;
+  display: block;
+  position: absolute;
+  top: -1vw;
+  left: 5vw;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 35px #000;
+  box-shadow: 0 0 35px #000;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-thumb {
+  position: absolute;
+  top: 0;
+  left: 0.4vw;
+  width: 16%;
+  z-index: 1;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-info {
+  position: absolute;
+  top: 0;
+  left: 5vw;
+  z-index: 2;
+  width: 80%;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-info p {
+  margin: 0;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-info a {
+  color: #f00;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-cover {
+  position: absolute;
+  z-index: 1;
+}
+.container.Concurso > div#concurso2 .row:nth-child(3) .photo .photo-cont {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 4vw;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 0;
+}
+.container.Concurso > div#concurso3 {
+  display: none;
+}
+.container.Concurso > div#concurso3 .asset-paso3 {
+  position: absolute;
+  top: -2vw;
+  left: -3vw;
+}
+.container.Concurso > div#concurso3 .row:nth-child(2) {
+  text-align: center;
+  color: #fff;
+}
+.container.Concurso > div#concurso3 .row:nth-child(2) h1 {
+  font-family: 'colgate_readyregular';
+  font-size: 3vw;
+  color: #fff;
+}
+.container.Concurso > div#concurso3 .row:nth-child(2) p {
+  font-family: 'colgate_readyregular';
+  font-size: 1.2vw;
+  color: #fff;
+}
+.container.Concurso > div#concurso3 .row:nth-child(3) a {
+  display: block;
+  margin: 3vw auto;
+  width: 15vw;
+  height: 3.6vw;
+}
+.container.Concurso > div#concurso3 .row:nth-child(3) a.fb-xlarge {
+  background: url("../img/fb-large.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.container.Concurso > div#concurso3 .row:nth-child(3) a.tw-xlarge {
+  background: url("../img/tw-large.png") no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+.container.Concurso > div#concurso3 .row:nth-child(3) .photo {
+  width: 55%;
+  display: block;
+  position: absolute;
+  top: -2vw;
+  left: 5vw;
+}
+.container.Selfies > div {
+  position: absolute;
+  top: 5vw;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 90%;
+  height: 85%;
+  margin: auto;
+  background: #b0191b;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(0,0,0,0.7) 0px 0px 25px;
+  box-shadow: rgba(0,0,0,0.7) 0px 0px 25px;
+}
+.container.Selfies #selfies-container h1 {
+  font-family: 'colgate_readyregular';
+  font-size: 3vw;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+}
+.container.Selfies #selfies-container #prime {
+  height: 70%;
+}
+.container.Selfies #selfies-container #prime .main {
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  position: relative;
+}
+.container.Selfies #selfies-container #prime .main img {
+  height: 75%;
+  margin: auto;
+  margin-left: 450px;
+}
+.container.Selfies #selfies-container ul {
+  height: 30%;
+  width: 60%;
+  margin: -100px 260px;
+}
+.container.Selfies #selfies-container ul li {
+  position: relative;
+  width: 20%;
+  text-align: center;
+  float: left;
+}
+.container.Selfies #selfies-container .btn {
+  background: url("../img/caja-boton.png") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  width: 8vw;
+  height: 2.4vw;
+  color: #fff;
+  font-size: 1vw;
+  text-align: center;
+}
+.container.Selfies #selfies-container .bases {
+  position: absolute;
+  bottom: 1vw;
+  left: 3vw;
+}
+.container.Selfies #selfies-container .premios {
+  position: absolute;
+  bottom: 1vw;
+  left: 12vw;
+}
+.container.Selfies button.like{
+  background:url(../img/like.png)no-repeat;
+}
+.container.Selfies button.mayor{
+  background:url(../img/mayor.png)no-repeat;
+  margin-left: -67px;
+  padding-top: 60px;
+}
+.container.Gente {
+  /*background: url("../img/fondo.png") no-repeat;*/
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -512,7 +872,11 @@ img.pasta1 {
   margin-top: -5vw;
 }
 .container.Magazine {
+<<<<<<< HEAD
   background: url("../img/fondo.png") no-repeat;
+=======
+  /*background: url("../img/fondo.png") no-repeat;*/
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -632,6 +996,7 @@ img.pasta1 {
   text-align: left;
   font-size: 1vw;
 }
+<<<<<<< HEAD
 #concurso1 .asset-paso1 {
   position: absolute;
   top: 0;
@@ -869,6 +1234,8 @@ img.pasta1 {
   bottom: 0;
   left: 7vw;
 }
+=======
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
 .slider0 {
   width: 100%;
   height: 100%;
@@ -1041,6 +1408,13 @@ img.pasta1 {
   -moz-background-size: cover;
   background-size: cover;
 }
+<<<<<<< HEAD
+=======
+.fancybox-overlay .fancybox-skin .fancybox-inner,
+.fancybox-opened .fancybox-skin .fancybox-inner {
+  overflow: hidden !important;
+}
+>>>>>>> c8464500a4e3671979dca2a713ca21582d4a87ff
 .fancybox-overlay .fancybox-skin .fancybox-close,
 .fancybox-opened .fancybox-skin .fancybox-close {
   background: url("../img/boton-tache.png") no-repeat;
